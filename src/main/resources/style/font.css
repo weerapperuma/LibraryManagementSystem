@@ -1,0 +1,12 @@
+.text {
+    -fx-fill: #123817; /* Set text color using hex code */
+    -fx-font-size: 16px; /* Set font size */
+    -fx-font-weight: bold; /* Make text bold */
+}
+
+/* Styling for specific nodes with a specific class (e.g., h1) */
+.h1 {
+    -fx-fill: #123817;
+    -fx-font-size: 24px; /* Adjust font size for specific nodes */
+    -fx-font-weight: bold;
+}

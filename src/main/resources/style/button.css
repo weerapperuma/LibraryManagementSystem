@@ -1,0 +1,141 @@
+.font{
+    -fx-font-family: "Noto Sans";
+}
+.textBox{
+    -fx-font-size: 20;
+    -fx-border-radius: 40;
+    -fx-background-radius: 40;
+}
+.loginbtn{
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+    -fx-background-color: transparent;
+    -fx-text-fill: #000000;
+}
+.loginbtn:hover{
+    -fx-background-color: #ff4b94;
+    -fx-text-fill: #ffffff;
+}
+.signupbtn{
+    -fx-font-weight: 700;
+}
+.fontdash{
+    -fx-font-family: "Lucida Sans Unicode";
+}
+.btn {
+    -fx-background-color: transparent;
+    -fx-border-color: #001c83;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+    -fx-font-size: 15;
+    -fx-pref-width: 178;
+    -fx-pref-height: 38;
+    -fx-alignment: center;
+    -fx-text-fill: black; /* Add this line to set text color to black */
+}
+.text-field {
+    -fx-background-color: #ffffff; /* Background color */
+    -fx-border-color: #cccccc; /* Border color */
+    -fx-border-width: 1; /* Border width */
+    -fx-border-radius: 5; /* Border radius */
+    -fx-pref-width: 200; /* Preferred width */
+    -fx-pref-height: 30; /* Preferred height */
+    -fx-font-size: 14; /* Font size */
+}
+
+
+.btn2 {
+    -fx-background-color: #f84f02;
+    -fx-border-color: #760083;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 24;
+    -fx-pref-width: 250;
+    -fx-pref-height: 50;
+    -fx-alignment: center;
+}
+.closeBtn{
+    -fx-pref-width: 40.0;
+    -fx-pref-height: 54.0;
+}
+.closeBtn:hover{
+    -fx-background-color: #f84f02; /* Change the color to your desired hover color */
+    -fx-text-fill: white; /* Change the text color on hover if needed */
+}
+.btn2:hover {
+    -fx-background-color: #ca03f6; /* Change the color to your desired hover color */
+    -fx-text-fill: white; /* Change the text color on hover if needed */
+}
+
+.btn:hover {
+    -fx-background-color: #0000ff;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}
+.btnLogin {
+    -fx-background-color: #0000ff;
+    -fx-border-color: transparent;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-font-size: 20;
+    -fx-pref-width: 210;
+    -fx-pref-height: 42;
+    -fx-alignment: center;
+}
+.btnLogin:hover {
+    -fx-background-color: #c508ee;
+    -fx-border-color: transparent;
+    -fx-text-fill: #ffffff;
+}
+
+.button {
+
+    -fx-text-fill: black;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 20px;
+}
+
+.button1 {
+    -fx-background-radius: 2px;
+}
+
+.button2 {
+    -fx-background-radius: 4px;
+}
+
+.button3 {
+    -fx-background-radius: 8px;
+}
+
+.button4 {
+    -fx-background-radius: 12px;
+}
+
+.button5 {
+    -fx-background-radius: 50%;
+}
+
+.button5:hover {
+    -fx-background-color: #22ff00;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}
+.button2:hover {
+    -fx-background-color: #0000ff;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}
+
+/* styles.css */
+
+/* Default styles for the image */
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0);
+    /* Add any other default styles as needed */
+}
+
+/* Styles for the image on hover */
+.image-view:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 51, 255, 0.8), 10, 0, 0, 0);
+    /* Change the color to green (0, 255, 0), adjust as needed */
+}

@@ -1,0 +1,91 @@
+.font {
+    -fx-font-family: "System Bold";
+}
+
+.bold-font {
+    -fx-font-family: "System Bold";
+}
+
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0);
+    /* Add any other default styles as needed */
+}
+
+/* Styles for the image on hover */
+.image-view:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 51, 255, 0.8), 10, 0, 0, 0);
+    /* Change the color to green (0, 255, 0), adjust as needed */
+}
+
+.btn {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-border-color: transparent;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-font-size: 15;
+    -fx-alignment: center;
+    -fx-text-fill: black; /* Add this line to set text color to black */
+}
+
+.btn:hover {
+    -fx-background-color: #0000ff;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}
+.btndelete {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-font-size: 15;
+    -fx-alignment: center;
+    -fx-text-fill: black; /* Add this line to set text color to black */
+}
+.btndelete:hover {
+    -fx-background-color: #ff0000;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}
+/* Apply these styles when the input is in focus */
+.text-field:focused {
+    -fx-border-color: #00ff00; /* Change border color when focused */
+}
+.text-field {
+    -fx-border-radius: 20;
+    -fx-border-color: #ff0000; /* Border color */
+    -fx-border-width: 2; /* Border width */
+    -fx-padding: 5; /* Padding to make the text not touch the border */
+}
+.btnClose {
+    -fx-background-color: rgb(150, 85, 85);
+    -fx-border-color: transparent;
+    -fx-background-radius: 5; /* Adjust background radius for a round button */
+    -fx-padding: 5 10; /* Adjust padding for content inside the button */
+    -fx-font-size: 10; /* Adjust font size for a smaller button */
+    -fx-alignment: center;
+    -fx-text-fill: black;
+}
+
+.btnClose:hover {
+    -fx-background-color: #ff0000;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}
+.btnSave {
+    -fx-background-color: rgb(245, 245, 245);
+    -fx-border-color: transparent;
+    -fx-background-radius: 5; /* Adjust background radius for a round button */
+    -fx-padding: 5 10; /* Adjust padding for content inside the button */
+    -fx-font-size: 20; /* Adjust font size for a smaller button */
+    -fx-alignment: center;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+.btnSave:hover {
+    -fx-background-color: #00ff12;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}
+.btn
