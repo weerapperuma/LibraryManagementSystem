@@ -17,7 +17,11 @@ public class AdminRepositoryImpl implements AdminRepository {
     public Admin ifExists(String userId) {
         try{
             Integer adminId = Integer.valueOf(userId);
-            Admin admin = session.get(Admin.class, adminId);
+            //Admin admin = session.get(Admin.class, adminId);
+            Admin admin= (Admin) session.createQuery("FROM admin WHERE admin_loginId = :adminLoginID")
+                    .setParameter("adminLoginID",adminId)
+                    .uniqueResult();
+
 
             //System.out.println(admin.getAdminName());
             if(admin==null){

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import java.net.URL?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="661.0" prefWidth="1169.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.WelcomeFormController">
@@ -17,7 +19,12 @@
             <Image url="@../assests/img/bgBookWorm.png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="1101.0" layoutY="6.0" onAction="#btnCloseOnAction" prefHeight="35.0" prefWidth="42.0" styleClass="btndelete" stylesheets="@../style/button.css" text="">
+      <TextField fx:id="txtPassportId" alignment="CENTER" layoutX="455.0" layoutY="555.0" prefHeight="35.0" prefWidth="271.0" promptText="Input your Loggin ID" style="-fx-background-radius: 20;" styleClass="text-field" stylesheets="@../style/iconButton.css">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </TextField>
+      <JFXButton buttonType="RAISED" layoutX="1101.0" layoutY="6.0" onAction="#btnCloseOnAction" prefHeight="35.0" prefWidth="42.0" styleClass="btndelete" stylesheets="@../style/iconButton.css" text="">
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -26,17 +33,12 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <TextField fx:id="txtPassportId" alignment="CENTER" layoutX="455.0" layoutY="555.0" prefHeight="35.0" prefWidth="271.0" promptText="Input your LOggin ID" style="-fx-background-radius: 20;" styleClass="text-field">
-         <font>
-            <Font name="System Bold Italic" size="18.0" />
-         </font>
-      </TextField>
-      <PasswordField fx:id="pwPasswordField" alignment="CENTER" layoutX="457.0" layoutY="605.0" prefHeight="0.0" prefWidth="271.0" promptText="Input User Password" style="-fx-background-radius: 30;">
+      <PasswordField fx:id="pwPasswordField" alignment="CENTER" layoutX="457.0" layoutY="605.0" prefHeight="0.0" prefWidth="271.0" promptText="Input User Password" style="-fx-background-radius: 30;" stylesheets="@../style/iconButton.css">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </PasswordField>
-      <JFXButton fx:id="btntxtRent" layoutX="750.0" layoutY="608.0" onAction="#btnRentOnAction" prefHeight="35.0" prefWidth="33.0" styleClass="btn" text="">
+      <JFXButton fx:id="btntxtRent" layoutX="750.0" layoutY="608.0" onAction="#btnRentOnAction" prefHeight="35.0" prefWidth="33.0" styleClass="btn" stylesheets="@../style/iconButton.css" text="">
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -50,9 +52,54 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Hyperlink>
+      <Label layoutX="832.0" layoutY="614.0" text="OR" textFill="#ff065d">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="fxBtnCreateAcc" layoutX="886.0" layoutY="604.0" onAction="#btnCreateAccOnAction" styleClass="btnCreateAccount" stylesheets="@../style/iconButton.css" text="CREATE ACCOUNT" />
+      <Pane layoutX="888.0" layoutY="322.0" prefHeight="261.0" prefWidth="250.0">
+         <children>
+            <TextField fx:id="fxNameNewUsr" layoutX="4.0" layoutY="43.0" prefHeight="32.0" prefWidth="242.0" style="-fx-background-radius: 5;" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
+            <TextField fx:id="fxEmailNewUsr" layoutX="4.0" layoutY="103.0" prefHeight="32.0" prefWidth="242.0" style="-fx-background-radius: 5;" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
+            <PasswordField fx:id="fxpasswordNewUsr" layoutX="4.0" layoutY="161.0" prefHeight="32.0" prefWidth="242.0" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
+            <PasswordField fx:id="fxRePasswordNewUsr" layoutX="4.0" layoutY="218.0" prefHeight="32.0" prefWidth="242.0" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
+            <Label fx:id="lblNewID" layoutX="106.0" layoutY="1.0" text="289" textFill="#1b1553">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="127.0" layoutY="202.0" text="Re-Type Password">
+               <font>
+                  <Font name="Cambria Math" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="154.0" layoutY="143.0" text="Give Password">
+               <font>
+                  <Font name="Cambria Math" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="153.0" layoutY="85.0" text="Email Address">
+               <font>
+                  <Font name="Cambria Math" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="203.0" layoutY="25.0" text="Name">
+               <font>
+                  <Font name="Cambria Math" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="7.0" prefHeight="16.0" prefWidth="59.0" text="Your ID :">
+               <font>
+                  <Font name="Cambria Math" size="14.0" />
+               </font>
+            </Label>
+            <Line endX="221.0" layoutX="29.0" layoutY="15.0" startX="117.0" />
+            <Line endX="149.3333740234375" layoutX="-120.0" layoutY="16.0" startX="117.0" />
+         </children>
+      </Pane>
+      <Line endX="139.0" layoutX="1007.0" layoutY="593.0" startX="-130.33331298828125" />
+      <Line endX="139.0" endY="-534.0" layoutX="1000.0" layoutY="871.0" startX="139.0" startY="-270.0" />
+      <Line endX="139.0" endY="-534.0" layoutX="745.0" layoutY="873.0" startX="139.0" startY="-270.0" />
    </children>
-   <stylesheets>
-      <URL value="@../style/iconButton.css" />
-      <URL value="@../style/iconButton.css" />
-   </stylesheets>
 </AnchorPane>

@@ -17,6 +17,8 @@ public class Admin {
     @Column(name = "admin_id")
     private int adminID;
 
+    @Column(name = "admin_loginId")
+    private int adminLoginID;
     @Column(name = "admin_name")
     private String adminName;
     @Column(name = "address")

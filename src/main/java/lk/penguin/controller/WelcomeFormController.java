@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import lk.penguin.dto.UserDTO;
 import lk.penguin.service.ServiceFactory;
 import lk.penguin.service.custom.WelcomeService;
 import lk.penguin.util.Navigation;
@@ -36,6 +37,20 @@ public class WelcomeFormController implements Initializable {
 
     @FXML
     private TextField txtPassportId;
+    @FXML
+    private JFXButton fxBtnCreateAcc;
+
+    @FXML
+    private TextField fxEmailNewUsr;
+
+    @FXML
+    private TextField fxNameNewUsr;
+
+    @FXML
+    private PasswordField fxRePasswordNewUsr;
+
+    @FXML
+    private PasswordField fxpasswordNewUsr;
 
     @FXML
     private Pane weclcomeNicFxId;
@@ -48,6 +63,16 @@ public class WelcomeFormController implements Initializable {
         Platform.exit();
         System.exit(0);
     }
+    @FXML
+    void btnCreateAccOnAction(ActionEvent event) {
+        UserDTO userDTO=new UserDTO(
+                0,
+                fxNameNewUsr.getText(),
+                fxEmailNewUsr.getText(),
+                fxpasswordNewUsr.getText());
+
+        boolean saved=welcomeService.saveUser(userDTO);
+    }
 
     @FXML
     void btnRentOnAction(ActionEvent event) throws IOException {
@@ -58,7 +83,7 @@ public class WelcomeFormController implements Initializable {
             if(welcomeService.chekAdmin(userId,password)){
                 Navigation.switchNavigation("/view/userDashBoard.fxml",event);
             } else if (welcomeService.chekMember(userId, password)) {
-
+                System.out.println("Elakiri");
             } else{
                 System.out.println("fk u");
             }
@@ -75,6 +100,10 @@ public class WelcomeFormController implements Initializable {
         txtPassportId.setOnAction(event ->pwPasswordField.requestFocus());
         pwPasswordField.setOnAction(event-> btntxtRent.fire());
 
+        fxNameNewUsr.setOnAction(event ->fxEmailNewUsr.requestFocus());
+        fxEmailNewUsr.setOnAction(event ->fxpasswordNewUsr.requestFocus());
+        fxpasswordNewUsr.setOnAction(event -> fxRePasswordNewUsr.requestFocus());
+        fxRePasswordNewUsr.setOnAction(event ->fxBtnCreateAcc.fire());
 
     }
 }

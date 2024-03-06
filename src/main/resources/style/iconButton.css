@@ -53,7 +53,7 @@
 }
 .text-field {
     -fx-border-radius: 20;
-    -fx-border-color: #ff0000; /* Border color */
+    -fx-border-color: #0095ff; /* Border color */
     -fx-border-width: 2; /* Border width */
     -fx-padding: 5; /* Padding to make the text not touch the border */
 }
@@ -88,4 +88,50 @@
     -fx-border-color: transparent;
     -fx-text-fill: #000000;
 }
-.btn
+
+.btnUserManage{
+    -fx-background-color: rgb(245, 245, 245);
+    -fx-border-color: transparent;
+    -fx-background-radius: 10; /* Adjust background radius for a round button */
+    -fx-padding: 5 10; /* Adjust padding for content inside the button */
+    -fx-font-size: 20; /* Adjust font size for a smaller button */
+    -fx-alignment: center;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-pref-width: 300; /* Preferred width */
+    -fx-pref-height: 150
+}
+.btnUserManage:hover {
+    -fx-background-color: #00ff12;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+    -fx-background-radius: 10;
+}
+.btnCreateAccount{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 10; /* Adjust background radius for a round button */
+    -fx-padding: 5 10; /* Adjust padding for content inside the button */
+    -fx-font-size: 15; /* Adjust font size for a smaller button */
+    -fx-alignment: center;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-pref-width: 250; /* Preferred width */
+    -fx-pref-height: 40
+}
+.btnCreateAccount:hover {
+    -fx-background-color: #00ff12;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+    -fx-background-radius: 10;
+}
+
+.text-field2:focused {
+    -fx-border-color: #0095ff; /* Change border color when focused */
+}
+.text-field2 {
+    -fx-border-radius: 5;
+    -fx-border-color: #ff9900; /* Border color */
+    -fx-border-width: 2; /* Border width */
+    -fx-padding: 5; /* Padding to make the text not touch the border */
+}

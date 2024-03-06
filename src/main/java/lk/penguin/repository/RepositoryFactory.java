@@ -1,6 +1,7 @@
 package lk.penguin.repository;
 
 import lk.penguin.repository.custom.impl.AdminRepositoryImpl;
+import lk.penguin.repository.custom.impl.UserRepositoryImpl;
 import org.apache.commons.beanutils.PropertyUtilsBean;
 
 public class RepositoryFactory {
@@ -13,12 +14,14 @@ public class RepositoryFactory {
                 :repositoryFactory;
     }
     public enum RepositoryType{
-        ADMIN
+        ADMIN,USER
     }
     public SuperRepository getRepository(RepositoryType repositoryType){
         switch (repositoryType){
             case ADMIN:
                 return new AdminRepositoryImpl();
+            case USER:
+                return new UserRepositoryImpl();
             default:
                 return null;
         }
