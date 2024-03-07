@@ -58,11 +58,12 @@
             <Font name="Comic Sans MS Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblTime" layoutX="500.0" layoutY="11.0" prefHeight="25.0" prefWidth="291.0" text="time">
+      <Label fx:id="lblTime" layoutX="334.0" layoutY="11.0" prefHeight="25.0" prefWidth="291.0" text="time">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="18.0" />
          </font>
       </Label>
+      <JFXButton layoutX="1063.0" layoutY="12.0" onAction="#btnNavigateOnAction" styleClass="hover-pane" text="Home" />
    </children>
    <stylesheets>
       <URL value="@../style/iconButton.css" />

@@ -135,3 +135,20 @@
     -fx-border-width: 2; /* Border width */
     -fx-padding: 5; /* Padding to make the text not touch the border */
 }
+
+.btnAdd {
+    -fx-background-color: rgb(245, 245, 245);
+    -fx-border-color: transparent;
+    -fx-background-radius: 30; /* Adjust background radius for a round button */
+    -fx-padding: 5 10; /* Adjust padding for content inside the button */
+    -fx-font-size: 20; /* Adjust font size for a smaller button */
+    -fx-alignment: center;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+.btnAdd:hover {
+    -fx-background-color: #00e9ff;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}

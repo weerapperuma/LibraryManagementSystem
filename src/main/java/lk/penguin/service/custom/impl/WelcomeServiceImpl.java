@@ -23,7 +23,10 @@ public class WelcomeServiceImpl implements WelcomeService {
 
     @Override
     public boolean chekMember(String userId, String password) {
-
+        User user=userRepository.ifExists(userId);
+        if(user!=null){
+            return user.getUserPassword().equals(password);
+        }
         return false;
     }
 

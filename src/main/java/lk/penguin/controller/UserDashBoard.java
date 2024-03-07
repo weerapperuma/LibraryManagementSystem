@@ -9,7 +9,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import lk.penguin.util.Navigation;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -17,12 +19,19 @@ public class UserDashBoard {
 
     @FXML
     private JFXButton fxbtnBook;
+    @FXML
+    private Pane mainAdminPaneInterface;
 
     @FXML
     private JFXButton fxbtnBranches;
 
     @FXML
     private JFXButton fxbtnReader;
+    @FXML
+    void btnNavigateOnAction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("/view/welcomeForm.fxml",event);
+    }
+
 
     @FXML
     private Label lblDate;
@@ -31,8 +40,8 @@ public class UserDashBoard {
     private Label lblTime;
 
     @FXML
-    void btnBooksOnAction(ActionEvent event) {
-
+    void btnBooksOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPaging(mainAdminPaneInterface,"/view/bookManageForm.fxml");
     }
 
     @FXML

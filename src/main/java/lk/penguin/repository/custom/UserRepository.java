@@ -5,4 +5,6 @@ import lk.penguin.repository.SuperRepository;
 
 public interface UserRepository extends SuperRepository {
     boolean save(User user);
+
+    User ifExists(String userId);
 }

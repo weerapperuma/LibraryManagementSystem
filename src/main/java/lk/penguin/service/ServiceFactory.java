@@ -1,5 +1,6 @@
 package lk.penguin.service;
 
+import lk.penguin.service.custom.impl.BookManageServiceImpl;
 import lk.penguin.service.custom.impl.WelcomeServiceImpl;
 
 public class ServiceFactory {
@@ -12,13 +13,15 @@ public class ServiceFactory {
                 :serviceFactory;
     }
     public enum ServiceType{
-        WELCOME
+        WELCOME,BOOKS
     }
 
     public SuperService getService(ServiceType serviceType){
         switch (serviceType) {
             case WELCOME :
                 return new WelcomeServiceImpl();
+            case BOOKS:
+                return new BookManageServiceImpl();
             default:
                 return null;
         }

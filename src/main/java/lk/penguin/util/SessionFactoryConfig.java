@@ -1,6 +1,7 @@
 package lk.penguin.util;
 
 import lk.penguin.entity.Admin;
+import lk.penguin.entity.Books;
 import lk.penguin.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,6 +16,7 @@ public class SessionFactoryConfig {
                 .mergeProperties(Utility.getProperties())
                 .addAnnotatedClass(Admin.class)
                 .addAnnotatedClass(User.class)
+                .addAnnotatedClass(Books.class)
                 .buildSessionFactory();
     }
 
