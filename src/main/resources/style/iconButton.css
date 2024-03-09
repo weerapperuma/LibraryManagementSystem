@@ -152,3 +152,25 @@
     -fx-border-color: transparent;
     -fx-text-fill: #000000;
 }
+.combo-box {
+    -fx-background-color: grey;
+    -fx-background-radius: 20; /* Adjust the value for more or less rounded corners */
+}
+
+.combo-box .list-cell {
+    -fx-background-color: transparent; /* This ensures the dropdown items don't inherit the grey background */
+    -fx-text-fill: black; /* Adjusts the text color inside the dropdown */
+    -fx-font-weight: bold; /* Makes the font bold */
+}
+
+.combo-box .cell {
+    -fx-background-color: grey;
+    -fx-background-radius: 10;
+
+}
+
+.combo-box .text-field {
+    -fx-background-color: grey;
+    -fx-background-radius: 10; /* Ensures the text field part also has rounded corners */
+    -fx-font-weight: bold; /* Bold text in the input field */
+}

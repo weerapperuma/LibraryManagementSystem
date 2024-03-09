@@ -4,6 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import lk.penguin.dto.BooksDTO;
+import lk.penguin.service.ServiceFactory;
+import lk.penguin.service.custom.BookManageService;
+import lk.penguin.util.Navigation;
+
+import java.io.IOException;
 
 public class BookAdminManageFormRawController {
     @FXML
@@ -20,14 +25,25 @@ public class BookAdminManageFormRawController {
 
     @FXML
     private Label lblBookName;
+    BookManageService bookManageService= (BookManageService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceType.BOOKS);
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
-
+    void btnDeleteOnAction(ActionEvent event) throws IOException {
+        if(bookManageService.delete(Integer.parseInt(lblBookID.getText()))){
+            Navigation.switchPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface, "/view/bookManageForm.fxml");
+        }
     }
 
     @FXML
-    void btnUpdateOnAction(ActionEvent event) {
+    void btnUpdateOnAction(ActionEvent event) throws IOException {
+        SaveNewBookFormController.bookID=Integer.parseInt(lblBookID.getText());
+        System.out.println("mma:"+lblBookID.getText());
+        SaveNewBookFormController.bookTitle=lblBookName.getText();
+        SaveNewBookFormController.genre=lblBookGenre.getText();
+        SaveNewBookFormController.author=lblBookAuthor.getText();
+        SaveNewBookFormController.availability=lblAvailability.getText();
+
+        Navigation.popupPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface, "/view/saveNewBookForm.fxml");
 
     }
     public void setDTO(BooksDTO booksDTO) {

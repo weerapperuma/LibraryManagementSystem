@@ -29,4 +29,21 @@ public class BookManageServiceImpl implements BookManageService {
         }
         return booksDTOS;
     }
+
+    @Override
+    public boolean save(BooksDTO booksDTO) {
+        Books books=new Books(booksDTO.getBookId(),booksDTO.getBookTitle(),booksDTO.getGenre(),booksDTO.getAuthor(),booksDTO.getAvailability());
+        return booksRepository.save(books);
+    }
+
+    @Override
+    public boolean delete(int lblBookID) {
+        return booksRepository.delete(lblBookID);
+    }
+
+    @Override
+    public boolean update(BooksDTO booksDTO) {
+        Books books=new Books(booksDTO.getBookId(),booksDTO.getBookTitle(),booksDTO.getGenre(),booksDTO.getAuthor(),booksDTO.getAvailability());
+        return booksRepository.update(books);
+    }
 }

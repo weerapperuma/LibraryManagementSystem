@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="415.0" prefWidth="304.0" style="-fx-border-color: black;" stylesheets="@../style/iconButton.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.SaveNewBookFormController">
+   <children>
+      <JFXButton fx:id="btnVehicleExitOnAction" buttonType="RAISED" layoutX="14.0" layoutY="10.0" onAction="#btnVehicleSaveExit" prefHeight="21.0" prefWidth="274.0" styleClass="btnClose" text="SAVE BOOK">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="fxbtnSave" layoutX="15.0" layoutY="364.0" onAction="#btnSaveOnAction" prefHeight="21.0" prefWidth="274.0" styleClass="btnSave" text="+">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtBookTitle" layoutX="21.0" layoutY="70.0" prefHeight="32.0" prefWidth="258.0" style="-fx-background-radius: 20;" />
+      <TextField fx:id="txtAuthorName" layoutX="23.0" layoutY="129.0" prefHeight="32.0" prefWidth="258.0" style="-fx-background-radius: 20;" />
+      <Text layoutX="35.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BOOK TITLE:" wrappingWidth="160.8203125">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
+      <Text layoutX="35.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author Name:" wrappingWidth="160.8203125">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <JFXComboBox fx:id="cmbBookGenre" layoutX="35.0" layoutY="199.0" prefHeight="26.0" prefWidth="236.0" styleClass="combo-box" />
+      <Text layoutX="34.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" wrappingWidth="160.8203125">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="35.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" wrappingWidth="160.8203125">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <JFXComboBox fx:id="cmbBookStatus" layoutX="35.0" layoutY="272.0" prefHeight="26.0" prefWidth="236.0" />
+   </children>
+</AnchorPane>

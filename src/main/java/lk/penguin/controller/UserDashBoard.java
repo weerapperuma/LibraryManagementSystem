@@ -20,7 +20,15 @@ public class UserDashBoard {
     @FXML
     private JFXButton fxbtnBook;
     @FXML
-    private Pane mainAdminPaneInterface;
+    public Pane mainAdminPaneInterface;
+
+    private static UserDashBoard userDashBoard;
+    public UserDashBoard(){
+        userDashBoard=this;
+    }
+    public static UserDashBoard getUserDashBoard(){
+        return userDashBoard;
+    }
 
     @FXML
     private JFXButton fxbtnBranches;
@@ -41,6 +49,7 @@ public class UserDashBoard {
 
     @FXML
     void btnBooksOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPaging(mainAdminPaneInterface,"/view/bookManageForm.fxml");
         Navigation.switchPaging(mainAdminPaneInterface,"/view/bookManageForm.fxml");
     }
 

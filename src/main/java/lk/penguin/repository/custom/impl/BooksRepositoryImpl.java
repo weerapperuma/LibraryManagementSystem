@@ -4,6 +4,7 @@ import lk.penguin.entity.Books;
 import lk.penguin.repository.custom.BooksRepository;
 import lk.penguin.util.SessionFactoryConfig;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.ArrayList;
@@ -35,5 +36,57 @@ public class BooksRepositoryImpl implements BooksRepository {
             return new ArrayList<>();
         }
 
+    }
+
+    @Override
+    public boolean save(Books books) {
+        Transaction transaction=session.beginTransaction();
+        try {
+            session.save(books);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            e.printStackTrace();
+            return false;
+        }
+        finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public boolean delete(int lblBookID) {
+        Transaction transaction=session.beginTransaction();
+        try {
+            Books books=session.get(Books.class,lblBookID);
+            session.delete(books);
+            transaction.commit();
+            return true;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            transaction.rollback();
+            return false;
+        }finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public boolean update(Books books) {
+        Transaction transaction=session.beginTransaction();
+        try{
+            session.update(books);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            transaction.rollback();
+            return false;
+        }
+        finally {
+            session.close();
+        }
     }
 }

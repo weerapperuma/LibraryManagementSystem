@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="593.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.BookManageFormController">
+<AnchorPane fx:id="bookManagePane" prefHeight="593.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.BookManageFormController">
    <children>
       <Pane layoutX="7.0" layoutY="53.0" prefHeight="538.0" prefWidth="810.0">
          <children>
