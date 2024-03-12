@@ -43,7 +43,7 @@ public class BookAdminManageFormRawController {
         SaveNewBookFormController.bookTitle=lblBookName.getText();
         SaveNewBookFormController.genre=lblBookGenre.getText();
         SaveNewBookFormController.author=lblBookAuthor.getText();
-        SaveNewBookFormController.availability=lblAvailability.getText();
+        //SaveNewBookFormController.availability=lblAvailability.getText();
 
         Navigation.popupPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface, "/view/saveNewBookForm.fxml");
 

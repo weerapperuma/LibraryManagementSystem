@@ -35,7 +35,6 @@ public class SaveNewBookFormController {
     public static String bookTitle=null;
     public static String genre=null;
     public static String author=null;
-    public static String availability="available";
     BookManageService bookManageService= (BookManageService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceType.BOOKS);
 
     @FXML
@@ -50,21 +49,15 @@ public class SaveNewBookFormController {
 
         );
 
+        Long save = bookManageService.save(booksDTO);
+        System.out.println("Save new book:"+save);
         if(bookID==0){
-
-            Long save = bookManageService.save(booksDTO);
-            System.out.println("Save new book:"+save);
-            if(true){
-                Navigation.switchPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface,"/view/bookManageForm.fxml");
-                nullValues();
-                Navigation.closePopup();
-            }
-        }else {
-            if(bookManageService.update(booksDTO)){
-                Navigation.switchPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface,"/view/bookManageForm.fxml");
-                nullValues();
-                Navigation.closePopup();
-            }
+            Navigation.switchPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface,"/view/bookManageForm.fxml");
+            Navigation.closePopup();
+        }
+        else if (bookManageService.update(booksDTO)){
+            Navigation.switchPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface,"/view/bookManageForm.fxml");
+            Navigation.closePopup();
         }
 
     }
@@ -74,31 +67,23 @@ public class SaveNewBookFormController {
         Navigation.closePopup();
     }
 
-    public void initialize(){
-        cmbBookStatus.setItems(FXCollections.observableArrayList("available","unavailable"));
-        cmbBookStatus.setValue(availability);
+    public void initialize() {
+        cmbBookStatus.setItems(FXCollections.observableArrayList("available", "unavailable"));
+        cmbBookStatus.setValue("availabile");
 
         cmbBookGenre.setItems((FXCollections.observableArrayList(
-                "Fiction","Non-fiction","Mystery","Thriller","Romance",
-                "Science Fiction","Fantasy","Horror",
-                "Biography","Memoir")));
+                "Fiction", "Non-fiction", "Mystery", "Thriller", "Romance",
+                "Science Fiction", "Fantasy", "Horror",
+                "Biography", "Memoir")));
 
         cmbBookGenre.setValue(genre);
 
         txtBookTitle.setText(bookTitle);
         txtAuthorName.setText(author);
 
-        txtBookTitle.setOnAction(event ->txtAuthorName.requestFocus());
-        txtAuthorName.setOnAction(event ->cmbBookGenre.requestFocus());
-        cmbBookGenre.setOnAction(event ->cmbBookStatus.requestFocus());
-        cmbBookStatus.setOnAction(event ->fxbtnSave.fire());
-    }
-
-    public void nullValues(){
-        bookID=0;
-        bookTitle=null;
-        genre="Fiction";
-        author=null;
-        availability="available";
+        txtBookTitle.setOnAction(event -> txtAuthorName.requestFocus());
+        txtAuthorName.setOnAction(event -> cmbBookGenre.requestFocus());
+        cmbBookGenre.setOnAction(event -> cmbBookStatus.requestFocus());
+        cmbBookStatus.setOnAction(event -> fxbtnSave.fire());
     }
 }

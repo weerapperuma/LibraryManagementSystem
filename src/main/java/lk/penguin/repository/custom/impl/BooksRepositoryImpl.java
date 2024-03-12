@@ -37,7 +37,7 @@ public class BooksRepositoryImpl implements BooksRepository {
     public ArrayList<Books> getAll() {
         session.beginTransaction();
         try{
-            Query<Books> query= session.createQuery("from books ", Books.class);
+            Query<Books> query= session.createQuery("from Books ", Books.class);
             List<Books> booksList=query.list();
 
             session.getTransaction().commit();

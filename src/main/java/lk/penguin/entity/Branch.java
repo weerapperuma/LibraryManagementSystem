@@ -1,5 +1,6 @@
 package lk.penguin.entity;
 
+import lk.penguin.dto.BranchDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity(name = "branch")
+@Entity
+@Table(name = "branch")
 public class Branch {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,4 +33,15 @@ public class Branch {
     @ManyToOne
     @JoinColumn(name = "admin_id")
     private Admin admin;
+
+    public BranchDto toDto() {
+        return new BranchDto(
+                branchId,
+                branchName,
+                branchDistrict,
+                branchContactNb,
+                branchAvailability,
+                admin
+        );
+    }
 }
