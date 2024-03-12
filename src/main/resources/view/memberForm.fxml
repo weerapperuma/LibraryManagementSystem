@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.penguin.controller.MemberFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="bookManagePane" prefHeight="593.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.MemberFormController">
+    <children>
+        <Pane layoutX="7.0" layoutY="53.0" prefHeight="538.0" prefWidth="810.0">
+            <children>
+                <ScrollPane layoutX="1.0" prefHeight="536.0" prefWidth="810.0">
+                    <content>
+                        <VBox fx:id="fxBranchVbox" prefHeight="531.0" prefWidth="805.0" />
+                    </content>
+                </ScrollPane>
+            </children>
+        </Pane>
+        <Label layoutX="610.0" layoutY="18.0" prefHeight="31.0" prefWidth="92.0" style="-fx-background-color: orange;" text=" userName">
+            <font>
+                <Font name="Consolas Bold" size="12.0" />
+            </font></Label>
+        <Label layoutX="417.0" layoutY="18.0" prefHeight="31.0" prefWidth="188.0" style="-fx-background-color: orange;" text=" Email">
+            <font>
+                <Font name="Consolas Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="321.0" layoutY="18.0" prefHeight="31.0" prefWidth="92.0" style="-fx-background-color: orange;" text=" Contact">
+            <font>
+                <Font name="Consolas Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="59.0" layoutY="18.0" prefHeight="31.0" prefWidth="257.0" style="-fx-background-color: orange;" text=" Name">
+            <font>
+                <Font name="Consolas Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER" layoutX="16.0" layoutY="18.0" prefHeight="31.0" prefWidth="37.0" style="-fx-background-color: orange;" text="ID">
+            <font>
+                <Font name="Consolas Bold" size="12.0" />
+            </font>
+        </Label>
+        <JFXButton layoutX="745.0" layoutY="2.0" onAction="#btnAddMemberOnAction" prefHeight="31.0" prefWidth="40.0" styleClass="btnAdd" stylesheets="@../style/iconButton.css" text="">
+            <graphic>
+                <ImageView fitHeight="37.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assests/icon/icons8-add-64.png" />
+                    </image>
+                </ImageView>
+            </graphic></JFXButton>
+    </children>
 </AnchorPane>
