@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="40.0" prefWidth="805.0" style="-fx-background-radius: 30; -fx-border-radius: 30;" styleClass="hover-background" stylesheets="@../style/pane.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.BookAdminManageFormRawController">
+<AnchorPane prefHeight="40.0" prefWidth="805.0" style="-fx-background-radius: 30; -fx-border-radius: 30;" styleClass="hover-background" stylesheets="@../style/pane.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.BranchAdminManageFormRawController">
    <children>
       <Label fx:id="lblAvailability" layoutX="603.0" layoutY="4.0" prefHeight="31.0" prefWidth="92.0" text=" Availability">
          <font>
@@ -30,22 +30,22 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Label fx:id="lblBookAuthor" layoutX="409.0" layoutY="4.0" prefHeight="31.0" prefWidth="188.0" text=" Author">
+      <Label fx:id="lblBranchContact" layoutX="409.0" layoutY="4.0" prefHeight="31.0" prefWidth="188.0" text=" Author">
          <font>
             <Font name="Microsoft New Tai Lue Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblBookGenre" layoutX="313.0" layoutY="4.0" prefHeight="31.0" prefWidth="92.0" text=" Genre">
+      <Label fx:id="lblBranchdistrict" layoutX="313.0" layoutY="4.0" prefHeight="31.0" prefWidth="92.0" text=" Genre">
          <font>
             <Font name="Microsoft New Tai Lue Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblBookName" layoutX="51.0" layoutY="4.0" prefHeight="31.0" prefWidth="257.0" text=" Book Name">
+      <Label fx:id="lblBranchName" layoutX="51.0" layoutY="4.0" prefHeight="31.0" prefWidth="257.0" text=" Book Name">
          <font>
             <Font name="Microsoft New Tai Lue Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblBookID" alignment="CENTER" layoutX="3.0" layoutY="4.0" prefHeight="31.0" prefWidth="42.0" text="ID">
+      <Label fx:id="lblBranchID" alignment="CENTER" layoutX="3.0" layoutY="4.0" prefHeight="31.0" prefWidth="42.0" text="ID">
          <font>
             <Font name="Microsoft New Tai Lue Bold" size="14.0" />
          </font>

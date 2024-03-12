@@ -10,7 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import lk.penguin.dto.UserDTO;
+import lk.penguin.dto.UserDto;
+import lk.penguin.entity.Admin;
 import lk.penguin.service.ServiceFactory;
 import lk.penguin.service.custom.WelcomeService;
 import lk.penguin.util.Navigation;
@@ -57,6 +58,7 @@ public class WelcomeFormController implements Initializable {
     String userId;
     String password;
 
+    public static Admin admin;
     WelcomeService welcomeService= (WelcomeService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceType.WELCOME);
     @FXML
     void btnCloseOnAction(ActionEvent event) {
@@ -65,7 +67,7 @@ public class WelcomeFormController implements Initializable {
     }
     @FXML
     void btnCreateAccOnAction(ActionEvent event) {
-        UserDTO userDTO=new UserDTO(
+        UserDto userDTO=new UserDto(
                 0,
                 fxNameNewUsr.getText(),
                 fxEmailNewUsr.getText(),
@@ -81,6 +83,7 @@ public class WelcomeFormController implements Initializable {
 
         if(!userId.isEmpty() && !password.isEmpty()){
             if(welcomeService.chekAdmin(userId,password)){
+                admin=welcomeService.getAdmin(userId);
                 Navigation.switchNavigation("/view/userDashBoard.fxml",event);
             } else if (welcomeService.chekMember(userId, password)) {
                 System.out.println("Elakiri");

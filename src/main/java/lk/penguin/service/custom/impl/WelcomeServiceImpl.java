@@ -1,6 +1,6 @@
 package lk.penguin.service.custom.impl;
 
-import lk.penguin.dto.UserDTO;
+import lk.penguin.dto.UserDto;
 import lk.penguin.entity.Admin;
 import lk.penguin.entity.User;
 import lk.penguin.repository.RepositoryFactory;
@@ -31,16 +31,22 @@ public class WelcomeServiceImpl implements WelcomeService {
     }
 
     @Override
-    public boolean saveUser(UserDTO userDTO) {
+    public boolean saveUser(UserDto userDTO) {
         User user=new User(
                 userDTO.getUserId(),
                 userDTO.getUserName(),
                 userDTO.getUserEmail(),
                 userDTO.getUserPassword());
-        if(userRepository.save(user)){
+        if(userRepository.save(user)!=null){
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Admin getAdmin(String userId) {
+        Admin admin=adminRepository.ifExists(userId);
+        return admin;
     }
 
 

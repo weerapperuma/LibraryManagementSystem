@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
+
 public class AdminRepositoryImpl implements AdminRepository {
     private Session session;
 
@@ -18,7 +20,7 @@ public class AdminRepositoryImpl implements AdminRepository {
         try{
             Integer adminId = Integer.valueOf(userId);
             //Admin admin = session.get(Admin.class, adminId);
-            Admin admin= (Admin) session.createQuery("FROM admin WHERE admin_loginId = :adminLoginID")
+            Admin admin= (Admin) session.createQuery("FROM Admin WHERE adminLoginID = :adminLoginID")
                     .setParameter("adminLoginID",adminId)
                     .uniqueResult();
 
@@ -34,6 +36,31 @@ public class AdminRepositoryImpl implements AdminRepository {
             e.printStackTrace();
             throw e;
         }
+
+    }
+
+    @Override
+    public ArrayList<Admin> getAll() {
+        return null;
+    }
+
+    @Override
+    public Long save(Admin entity) {
+        return null;
+    }
+
+    @Override
+    public boolean delete(int id) {
+        return false;
+    }
+
+    @Override
+    public boolean update(Admin entity) {
+        return false;
+    }
+
+    @Override
+    public void setSession(Session session) {
 
     }
 }

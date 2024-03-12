@@ -6,7 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import lk.penguin.dto.BooksDTO;
+import lk.penguin.dto.BooksDto;
 import lk.penguin.service.ServiceFactory;
 import lk.penguin.service.custom.BookManageService;
 import lk.penguin.util.Navigation;
@@ -40,18 +40,21 @@ public class SaveNewBookFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) throws IOException {
-        BooksDTO booksDTO=new BooksDTO(
+        BooksDto booksDTO=new BooksDto(
                 bookID,
                 txtBookTitle.getText(),
                 (String) cmbBookGenre.getValue(),
                 txtAuthorName.getText(),
-                (String) cmbBookStatus.getValue()
+                (String) cmbBookStatus.getValue(),
+                WelcomeFormController.admin
 
         );
 
         if(bookID==0){
 
-            if(bookManageService.save(booksDTO)){
+            Long save = bookManageService.save(booksDTO);
+            System.out.println("Save new book:"+save);
+            if(true){
                 Navigation.switchPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface,"/view/bookManageForm.fxml");
                 nullValues();
                 Navigation.closePopup();

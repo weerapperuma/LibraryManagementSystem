@@ -50,12 +50,11 @@ public class UserDashBoard {
     @FXML
     void btnBooksOnAction(ActionEvent event) throws IOException {
         Navigation.switchPaging(mainAdminPaneInterface,"/view/bookManageForm.fxml");
-        Navigation.switchPaging(mainAdminPaneInterface,"/view/bookManageForm.fxml");
     }
 
     @FXML
-    void btnBranchesOnAction(ActionEvent event) {
-
+    void btnBranchesOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPaging(mainAdminPaneInterface,"/view/branchManageForm.fxml");
     }
 
     @FXML

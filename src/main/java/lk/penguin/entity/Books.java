@@ -5,17 +5,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity(name = "books")
+
+@Entity
+@Table(name = "books")
 public class Books {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_Id")
-    private int bookId;
+    private Long bookId;
 
     @Column(name = "book_title")
     private String bookTitle;
@@ -27,4 +28,7 @@ public class Books {
     private String availability;
 
 
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
+    private Admin admin;
 }

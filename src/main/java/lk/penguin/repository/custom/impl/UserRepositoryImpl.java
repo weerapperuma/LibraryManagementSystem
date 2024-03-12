@@ -6,6 +6,8 @@ import lk.penguin.util.SessionFactoryConfig;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
+
 public class UserRepositoryImpl implements UserRepository {
     private final Session session;
 
@@ -13,22 +15,32 @@ public class UserRepositoryImpl implements UserRepository {
         session= SessionFactoryConfig.getInstance().getSession();
     }
     @Override
-    public boolean save(User user) {
+    public Long save(User user) {
         Transaction transaction=null;
         try{
             transaction= session.beginTransaction();
-            session.save(user);
+            Long isSaved= (Long) session.save(user);
             transaction.commit();
             System.out.println("Coommited");
-            return true;
+            return isSaved;
         }catch (Exception e){
             if(transaction!=null){
                 transaction.rollback();
             }
             e.printStackTrace();
-            return false;
+            return null;
         }
 
+    }
+
+    @Override
+    public boolean delete(int id) {
+        return false;
+    }
+
+    @Override
+    public boolean update(User entity) {
+        return false;
     }
 
     @Override
@@ -45,5 +57,15 @@ public class UserRepositoryImpl implements UserRepository {
             e.printStackTrace();
             throw e;
         }
+    }
+
+    @Override
+    public ArrayList<User> getAll() {
+        return null;
+    }
+
+    @Override
+    public void setSession(Session session) {
+        
     }
 }

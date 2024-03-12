@@ -2,15 +2,10 @@ package lk.penguin.repository.custom;
 
 import lk.penguin.entity.Books;
 import lk.penguin.repository.SuperRepository;
+import lk.penguin.util.CrudUtil;
 
 import java.util.ArrayList;
 
-public interface BooksRepository extends SuperRepository {
-    ArrayList<Books> getAll();
+public interface BooksRepository extends CrudUtil<Books> {
 
-    boolean save(Books books);
-
-    boolean delete(int lblBookID);
-
-    boolean update(Books books);
 }

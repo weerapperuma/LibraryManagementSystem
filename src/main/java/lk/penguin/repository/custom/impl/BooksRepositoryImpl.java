@@ -13,10 +13,26 @@ import java.util.List;
 public class BooksRepositoryImpl implements BooksRepository {
     private Session session;
 
+    private static BooksRepositoryImpl booksRepositoryImpl;
 
     public BooksRepositoryImpl(){
         session= SessionFactoryConfig.getInstance().getSession();
     }
+
+    @Override
+    public void setSession(Session session) {
+        this.session=session;
+    }
+
+    @Override
+    public Long save(Books books) {
+        return (Long) session.save(books);
+    }
+    @Override
+    public Books ifExists(String id) {
+        return null;
+    }
+
     @Override
     public ArrayList<Books> getAll() {
         session.beginTransaction();
@@ -38,22 +54,7 @@ public class BooksRepositoryImpl implements BooksRepository {
 
     }
 
-    @Override
-    public boolean save(Books books) {
-        Transaction transaction=session.beginTransaction();
-        try {
-            session.save(books);
-            transaction.commit();
-            return true;
-        }catch (Exception e){
-            transaction.rollback();
-            e.printStackTrace();
-            return false;
-        }
-        finally {
-            session.close();
-        }
-    }
+
 
     @Override
     public boolean delete(int lblBookID) {
@@ -89,4 +90,6 @@ public class BooksRepositoryImpl implements BooksRepository {
             session.close();
         }
     }
+
+
 }
