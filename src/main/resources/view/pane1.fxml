@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.Pane1Controller">
+<AnchorPane prefHeight="1016.0" prefWidth="1900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.Pane1Controller">
    <children>
-      <JFXButton layoutX="135.0" layoutY="51.0" onAction="#down" prefHeight="98.0" prefWidth="171.0" style="-fx-background-color: grey;" />
+      <Pane prefHeight="98.0" prefWidth="1521.0" style="-fx-border-color: grey;">
+         <children>
+            <Label layoutX="188.0" layoutY="33.0" prefHeight="40.0" prefWidth="212.0" text="BOOK WORM" textFill="#4fb0dd">
+               <font>
+                  <Font name="FreeMono Bold Oblique" size="36.0" />
+               </font>
+            </Label>
+            <TextField layoutX="413.0" layoutY="30.0" prefHeight="46.0" prefWidth="1097.0" style="-fx-background-radius: 20;" stylesheets="@../style/iconButton.css" />
+            <ImageView fitHeight="98.0" fitWidth="171.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/img/bgBookWorm.png" />
+               </image>
+            </ImageView>
+         </children>
+         <effect>
+            <Glow />
+         </effect>
+      </Pane>
+      <Pane layoutY="98.0" prefHeight="917.0" prefWidth="1521.0" style="-fx-border-color: black;">
+         <children>
+            <JFXButton layoutX="592.0" layoutY="318.0" onAction="#down" prefHeight="98.0" prefWidth="171.0" style="-fx-background-color: grey;" />
+         </children>
+      </Pane>
+      <Pane layoutX="1519.0" layoutY="98.0" prefHeight="917.0" prefWidth="380.0" style="-fx-border-color: blue;" />
+      <Pane layoutX="1522.0" layoutY="1.0" prefHeight="98.0" prefWidth="374.0" style="-fx-background-color: #4fb0dd;">
+         <children>
+            <JFXButton fx:id="fxmainSearchButton" layoutX="90.0" layoutY="31.0" onAction="#mainSearchButtonOnAction" styleClass="btn" stylesheets="@../style/iconButton.css" text="">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assests/icon/shopping-cart.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="177.0" layoutY="37.0" onAction="#btnSignOptionOnAction" prefHeight="24.0" prefWidth="108.0" styleClass="btnAdd" stylesheets="@../style/iconButton.css" text="Sign In" textFill="#4fb0dd" />
+            <VBox fx:id="fxSignUpVbox" layoutX="183.0" layoutY="103.0" prefHeight="75.0" prefWidth="140.0">
+               <children>
+                  <Hyperlink prefHeight="29.0" prefWidth="100.0" text="Signup" />
+                  <Hyperlink layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="144.0" text="PasswordChange" />
+                  <Hyperlink layoutX="10.0" layoutY="39.0" prefHeight="29.0" prefWidth="144.0" text="Login" />
+               </children>
+            </VBox>
+            <JFXButton layoutX="86.0" layoutY="4.0" onAction="#btnExitOnAction" prefHeight="26.0" prefWidth="212.0" styleClass="btnClose" stylesheets="@../style/iconButton.css" text="" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -12,8 +12,8 @@
                <content>
                   <Pane prefHeight="2040.0" prefWidth="1874.0">
                      <children>
-                        <Pane fx:id="backgroundPane1" prefHeight="1016.0" prefWidth="1900.0" style="-fx-background-color: orange;" />
-                        <Pane fx:id="backgroundPane2" layoutX="-2.0" layoutY="1022.0" prefHeight="1016.0" prefWidth="1900.0" style="-fx-background-color: white;" />
+                        <Pane fx:id="backgroundPane1" prefHeight="1016.0" prefWidth="1900.0" />
+                        <Pane fx:id="backgroundPane2" layoutX="-2.0" layoutY="1022.0" prefHeight="1016.0" prefWidth="1900.0" />
                      </children>
                   </Pane>
                </content>
