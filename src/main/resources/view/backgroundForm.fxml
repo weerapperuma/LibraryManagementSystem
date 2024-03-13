@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="812.0" prefWidth="1449.0" style="-fx-background-color: #004953;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.BackgroundFormController">
+<AnchorPane prefHeight="1028.0" prefWidth="1907.0" style="-fx-background-color: #004953;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.BackgroundFormController">
    <children>
-      <AnchorPane fx:id="pagingPane" layoutX="3.0" layoutY="33.0" prefHeight="774.0" prefWidth="1442.0" style="-fx-background-color: white;" />
-      <Label fx:id="lblDateAndTime" layoutX="708.0" layoutY="8.0" prefHeight="17.0" prefWidth="292.0" text="Label">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
+      <AnchorPane fx:id="pagingPane" layoutX="7.0" layoutY="8.0" prefHeight="1012.0" prefWidth="1894.0" style="-fx-background-color: white;">
+         <children>
+            <ScrollPane fx:id="backgroundScrollPane" layoutX="1.0" layoutY="1.0" prefHeight="1010.0" prefWidth="1894.0">
+               <content>
+                  <Pane prefHeight="2040.0" prefWidth="1874.0">
+                     <children>
+                        <Pane fx:id="backgroundPane1" prefHeight="1016.0" prefWidth="1900.0" style="-fx-background-color: orange;" />
+                        <Pane fx:id="backgroundPane2" layoutX="-2.0" layoutY="1022.0" prefHeight="1016.0" prefWidth="1900.0" style="-fx-background-color: white;" />
+                     </children>
+                  </Pane>
+               </content>
+            </ScrollPane>
+         </children></AnchorPane>
    </children>
 </AnchorPane>

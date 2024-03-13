@@ -9,7 +9,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.scene.control.ScrollPane;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class Navigation {
@@ -74,4 +76,15 @@ public class Navigation {
         currentStage.close();
     }
 
+    private static ScrollPane scrollPane;
+    public static void setScrollPane(ScrollPane pane){
+        scrollPane=pane;
+    }
+
+    public static void autoScrollToBottom(){
+        if(scrollPane !=null){
+            double scrollPosition = scrollPane.getVmax();
+            scrollPane.setVvalue(scrollPosition);
+        }
+    }
 }
