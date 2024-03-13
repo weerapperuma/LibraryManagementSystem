@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public interface BookManageService extends SuperService {
     ArrayList<BooksDto> getAllBooks();
 
-    Long save(BooksDto booksDTO);
+    int save(BooksDto booksDTO);
 
     boolean delete(int lblBookID);
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="rentalDashBoardAnchorPane" prefHeight="774.0" prefWidth="1442.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.RentalDashBoardFormController">
+   <children>
+      <ScrollPane fx:id="rentalDashBoardScroll" layoutX="-2.0" layoutY="1.0" prefHeight="774.0" prefWidth="1442.0">
+         <content>
+            <AnchorPane fx:id="rentalDashBoardPane" prefHeight="1600.0" prefWidth="1423.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

@@ -6,30 +6,17 @@ import lk.penguin.util.SessionFactoryConfig;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class UserRepositoryImpl implements UserRepository {
-    private final Session session;
+    private Session session;
 
-    public UserRepositoryImpl(){
-        session= SessionFactoryConfig.getInstance().getSession();
-    }
     @Override
-    public Long save(User user) {
-        Transaction transaction=null;
-        try{
-            transaction= session.beginTransaction();
-            Long isSaved= (Long) session.save(user);
-            transaction.commit();
-            System.out.println("Coommited");
-            return isSaved;
-        }catch (Exception e){
-            if(transaction!=null){
-                transaction.rollback();
-            }
-            e.printStackTrace();
-            return null;
-        }
+    public int save(User user) {
+        int save = (int) session.save(user);
+        System.out.println(save);
+        return save;
 
     }
 
@@ -66,6 +53,6 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void setSession(Session session) {
-        
+        this.session = session;
     }
 }

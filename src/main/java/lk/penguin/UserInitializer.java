@@ -6,10 +6,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class AppInitializer extends Application {
+public class UserInitializer extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Scene scene=new Scene(FXMLLoader.load(this.getClass().getResource("/view/welcomeForm.fxml")));
+        Scene scene=new Scene(FXMLLoader.load(this.getClass().getResource("/view/backgroundForm.fxml")));
         stage.setResizable(false);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.centerOnScreen();

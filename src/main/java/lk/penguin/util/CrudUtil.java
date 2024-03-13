@@ -1,7 +1,5 @@
 package lk.penguin.util;
 
-import lk.penguin.entity.Books;
-import lk.penguin.entity.User;
 import lk.penguin.repository.SuperRepository;
 
 import java.util.ArrayList;
@@ -11,7 +9,7 @@ public interface CrudUtil<T> extends SuperRepository {
     ArrayList<T> getAll();
 
     //boolean save(Books books);
-    Long save(T entity);
+    int save(T entity);
 
     boolean delete(int id);
 

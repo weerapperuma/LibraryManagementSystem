@@ -25,8 +25,8 @@ public class BooksRepositoryImpl implements BooksRepository {
     }
 
     @Override
-    public Long save(Books books) {
-        return (Long) session.save(books);
+    public int save(Books books) {
+        return (int) session.save(books);
     }
     @Override
     public Books ifExists(String id) {

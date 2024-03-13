@@ -10,7 +10,6 @@ import lk.penguin.util.SessionFactoryConfig;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.security.PrivateKey;
 import java.util.ArrayList;
 
 public class BookManageServiceImpl implements BookManageService {
@@ -38,19 +37,19 @@ public class BookManageServiceImpl implements BookManageService {
     }
 
     @Override
-    public Long save(BooksDto booksDTO) {
+    public int save(BooksDto booksDTO) {
         session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction=session.beginTransaction();
         try{
             booksRepository.setSession(session);
-            Long save = booksRepository.save(booksDTO.toEntity());
+            int save = booksRepository.save(booksDTO.toEntity());
             transaction.commit();
             System.out.println("commit una");
             return save;
         }catch (Exception e){
             transaction.rollback();
             e.printStackTrace();
-            return -1L;
+            return -1;
         }
         finally {
             session.close();

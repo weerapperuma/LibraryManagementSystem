@@ -49,7 +49,7 @@ public class SaveNewBookFormController {
 
         );
 
-        Long save = bookManageService.save(booksDTO);
+        int save = bookManageService.save(booksDTO);
         System.out.println("Save new book:"+save);
         if(bookID==0){
             Navigation.switchPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface,"/view/bookManageForm.fxml");

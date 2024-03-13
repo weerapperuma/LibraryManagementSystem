@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="812.0" prefWidth="1449.0" style="-fx-background-color: #004953;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.BackgroundFormController">
+   <children>
+      <AnchorPane fx:id="pagingPane" layoutX="3.0" layoutY="33.0" prefHeight="774.0" prefWidth="1442.0" style="-fx-background-color: white;" />
+      <Label fx:id="lblDateAndTime" layoutX="708.0" layoutY="8.0" prefHeight="17.0" prefWidth="292.0" text="Label">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

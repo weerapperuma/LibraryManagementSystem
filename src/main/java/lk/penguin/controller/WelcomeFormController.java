@@ -81,6 +81,7 @@ public class WelcomeFormController implements Initializable {
                     fxNewUsrContact.getText(),
                     fxEmailNewUsr.getText(),
                     fxpasswordNewUsr.getText());
+
             if(welcomeService.saveUser(userDTO)){
                 System.out.println("Saved User successfully");
             }
@@ -96,9 +97,7 @@ public class WelcomeFormController implements Initializable {
             if(welcomeService.chekAdmin(userId,password)){
                 admin=welcomeService.getAdmin(userId);
                 Navigation.switchNavigation("/view/userDashBoard.fxml",event);
-            } else if (welcomeService.chekMember(userId, password)) {
-                System.out.println("Elakiri");
-            } else{
+            }else{
                 System.out.println("fk u");
             }
         }

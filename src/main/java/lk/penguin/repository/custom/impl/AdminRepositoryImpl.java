@@ -4,8 +4,6 @@ import lk.penguin.entity.Admin;
 import lk.penguin.repository.custom.AdminRepository;
 import lk.penguin.util.SessionFactoryConfig;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 
@@ -45,8 +43,8 @@ public class AdminRepositoryImpl implements AdminRepository {
     }
 
     @Override
-    public Long save(Admin entity) {
-        return null;
+    public int save(Admin entity) {
+        return -1;
     }
 
     @Override
