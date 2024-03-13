@@ -25,14 +25,6 @@ public class MemberFormController {
     private VBox fxBranchVbox;
     private final MemberService memberService= (MemberServiceImpl) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceType.MEMBER);
 
-    @FXML
-    void btnAddMemberOnAction(ActionEvent event) {
-        try {
-            Navigation.popupPaging(bookManagePane, "/view/memberSaveForm.fxml");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
     public void initialize() throws IOException {
         List<UserDto> userDtos =memberService.getAllMembers();
         if(userDtos !=null){

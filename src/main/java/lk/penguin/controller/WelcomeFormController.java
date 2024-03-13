@@ -54,6 +54,12 @@ public class WelcomeFormController implements Initializable {
     private PasswordField fxpasswordNewUsr;
 
     @FXML
+    private TextField fxNameNewUsrId;
+
+    @FXML
+    private TextField fxNewUsrContact;
+
+    @FXML
     private Pane weclcomeNicFxId;
     String userId;
     String password;
@@ -67,13 +73,18 @@ public class WelcomeFormController implements Initializable {
     }
     @FXML
     void btnCreateAccOnAction(ActionEvent event) {
-        UserDto userDTO=new UserDto(
-                0,
-                fxNameNewUsr.getText(),
-                fxEmailNewUsr.getText(),
-                fxpasswordNewUsr.getText());
-
-        boolean saved=welcomeService.saveUser(userDTO);
+        if(true){
+            UserDto userDTO=new UserDto(
+                    0,
+                    fxNameNewUsr.getText(),
+                    Integer.parseInt(fxNameNewUsrId.getText()),
+                    fxNewUsrContact.getText(),
+                    fxEmailNewUsr.getText(),
+                    fxpasswordNewUsr.getText());
+            if(welcomeService.saveUser(userDTO)){
+                System.out.println("Saved User successfully");
+            }
+        }
     }
 
     @FXML
@@ -103,7 +114,9 @@ public class WelcomeFormController implements Initializable {
         txtPassportId.setOnAction(event ->pwPasswordField.requestFocus());
         pwPasswordField.setOnAction(event-> btntxtRent.fire());
 
-        fxNameNewUsr.setOnAction(event ->fxEmailNewUsr.requestFocus());
+        fxNameNewUsr.setOnAction(event ->fxNameNewUsrId.requestFocus());
+        fxNameNewUsrId.setOnAction(event ->fxNewUsrContact.requestFocus());
+        fxNewUsrContact.setOnAction(event ->fxEmailNewUsr.requestFocus());
         fxEmailNewUsr.setOnAction(event ->fxpasswordNewUsr.requestFocus());
         fxpasswordNewUsr.setOnAction(event -> fxRePasswordNewUsr.requestFocus());
         fxRePasswordNewUsr.setOnAction(event ->fxBtnCreateAcc.fire());

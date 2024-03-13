@@ -34,6 +34,8 @@ public class MemberRawFormController {
 
     public void setDTO(UserDto userDto) {
         lblUserId.setText(String.valueOf(userDto.getUserId()));
-        lblName.setText(userDto.g);
+        lblName.setText(userDto.getName());
+        lblUserEmail.setText(userDto.getUserEmail());
+        lblUserContact.setText(userDto.getContact());
     }
 }

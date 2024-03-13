@@ -32,11 +32,7 @@ public class WelcomeServiceImpl implements WelcomeService {
 
     @Override
     public boolean saveUser(UserDto userDTO) {
-        User user=new User(
-                userDTO.getUserId(),
-                userDTO.getUserName(),
-                userDTO.getUserEmail(),
-                userDTO.getUserPassword());
+        User user=userDTO.toEntity();
         if(userRepository.save(user)!=null){
             return true;
         }
