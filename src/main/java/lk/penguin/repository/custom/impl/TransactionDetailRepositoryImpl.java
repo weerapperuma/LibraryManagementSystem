@@ -1,6 +1,8 @@
 package lk.penguin.repository.custom.impl;
 
+import lk.penguin.dto.TransactionDto;
 import lk.penguin.entity.Transaction;
+import lk.penguin.entity.TransactionDetail;
 import lk.penguin.repository.custom.TransactionRepository;
 import org.hibernate.Session;
 
@@ -27,7 +29,6 @@ public class TransactionDetailRepositoryImpl implements TransactionRepository {
     public int save(Transaction entity) {
         return 0;
     }
-
     @Override
     public boolean delete(int id) {
         return false;

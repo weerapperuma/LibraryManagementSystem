@@ -36,21 +36,7 @@ public class WelcomeServiceImpl implements WelcomeService {
 
     @Override
     public boolean saveUser(UserDto userDTO) {
-        session= SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        try{
-            userRepository.setSession(session);
-            System.out.println(userDTO.toEntity());
-            int save = userRepository.save(userDTO.toEntity());
-            transaction.commit();
-            return save>0;
-        }catch (Exception e){
-            e.printStackTrace();
-            transaction.rollback();
-            return false;
-        }finally {
-            session.close();
-        }
+        return false;
     }
 
     @Override

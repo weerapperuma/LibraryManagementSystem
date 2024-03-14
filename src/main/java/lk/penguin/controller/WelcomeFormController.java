@@ -73,19 +73,7 @@ public class WelcomeFormController implements Initializable {
     }
     @FXML
     void btnCreateAccOnAction(ActionEvent event) {
-        if(true){
-            UserDto userDTO=new UserDto(
-                    0,
-                    fxNameNewUsr.getText(),
-                    Integer.parseInt(fxNameNewUsrId.getText()),
-                    fxNewUsrContact.getText(),
-                    fxEmailNewUsr.getText(),
-                    fxpasswordNewUsr.getText());
 
-            if(welcomeService.saveUser(userDTO)){
-                System.out.println("Saved User successfully");
-            }
-        }
     }
 
     @FXML

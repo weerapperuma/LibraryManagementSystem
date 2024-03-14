@@ -1,5 +1,6 @@
 package lk.penguin.repository.custom.impl;
 
+import lk.penguin.dto.TransactionDto;
 import lk.penguin.entity.Transaction;
 import lk.penguin.repository.custom.TransactionRepository;
 import org.hibernate.Session;
@@ -7,9 +8,10 @@ import org.hibernate.Session;
 import java.util.ArrayList;
 
 public class TransactionRepositoryImpl implements TransactionRepository {
+    private Session session;
     @Override
     public void setSession(Session session) {
-
+        this.session=session;
     }
 
     @Override
@@ -24,7 +26,7 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 
     @Override
     public int save(Transaction entity) {
-        return 0;
+        return (int) session.save(entity);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package lk.penguin.repository.custom.impl;
 
+import lk.penguin.dto.TransactionDto;
 import lk.penguin.entity.Admin;
 import lk.penguin.repository.custom.AdminRepository;
 import lk.penguin.util.SessionFactoryConfig;

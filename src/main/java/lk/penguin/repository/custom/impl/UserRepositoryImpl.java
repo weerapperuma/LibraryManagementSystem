@@ -1,12 +1,11 @@
 package lk.penguin.repository.custom.impl;
 
+import lk.penguin.dto.TransactionDto;
+import lk.penguin.entity.Transaction;
 import lk.penguin.entity.User;
 import lk.penguin.repository.custom.UserRepository;
-import lk.penguin.util.SessionFactoryConfig;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class UserRepositoryImpl implements UserRepository {

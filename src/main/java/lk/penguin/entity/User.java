@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -33,6 +36,19 @@ public class User {
     @Column(name = "user_password")
     private String userPassword;
 
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
+    private Admin admin;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "user")
+    private List<Transaction> transactions=new ArrayList<>();
+
+    public User(int userId, String name, int userLoginId, String contact, String userEmail, String userPassword, Admin admin) {
+    }
+
+
     public UserDto toDto() {
         return new UserDto(
                 userId,
@@ -40,7 +56,8 @@ public class User {
                 userLoginId,
                 contact,
                 userEmail,
-                userPassword
+                userPassword,
+                admin
         );
     }
 }

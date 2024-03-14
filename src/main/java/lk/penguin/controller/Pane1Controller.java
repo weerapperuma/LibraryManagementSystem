@@ -12,6 +12,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import lk.penguin.dto.BooksDto;
+import lk.penguin.dto.TransactionDto;
+import lk.penguin.dto.UserDto;
+import lk.penguin.entity.User;
 import lk.penguin.service.ServiceFactory;
 import lk.penguin.service.custom.Pane1Service;
 import lk.penguin.service.custom.impl.Pane1ServiceImpl;
@@ -22,6 +25,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -93,10 +97,24 @@ public class Pane1Controller {
         addCartPane.setVisible(false);
     }
 
+    UserDto userDto=null;
     @FXML
     void btnAvailableBooksOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(Pane2Controller.getPane2Controller().fxPanePane2,"/view/orderAvailableBooksForm.fxml");
-        Navigation.autoScrollToBottom();
+
+
+        TransactionDto transactionDto=new TransactionDto(
+                0,
+                LocalDateTime.now(),
+                dpReturnDate.getValue().atStartOfDay(),
+                "incomplete",
+                userDto
+                );
+        int saved=pane1Service.save(transactionDto);
+        if(saved>0){
+            Navigation.switchPaging(Pane2Controller.getPane2Controller().fxPanePane2,"/view/orderAvailableBooksForm.fxml");
+            Navigation.autoScrollToBottom();
+            fxsearchBooksbtn.setDisable(true);
+        }
     }
 
     @FXML
@@ -112,8 +130,9 @@ public class Pane1Controller {
 
     @FXML
     void btnSignInOnAction(ActionEvent event) {
-        boolean isuserExists=pane1Service.isExistsUser(txtSignUserName.getText(),txtSignUserPassword.getText());
-        if(isuserExists){
+        userDto=pane1Service.isExistsUser(txtSignUserName.getText(),txtSignUserPassword.getText());
+        System.out.println(userDto.getUserPassword());
+        if(userDto!=null){
             txtSignUserName.setVisible(false);
             txtSignUserPassword.setVisible(false);
             fxSignInBtn.setVisible(false);
