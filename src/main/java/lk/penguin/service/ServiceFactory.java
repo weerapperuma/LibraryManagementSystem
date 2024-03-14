@@ -1,9 +1,6 @@
 package lk.penguin.service;
 
-import lk.penguin.service.custom.impl.BookManageServiceImpl;
-import lk.penguin.service.custom.impl.BranchServiceImpl;
-import lk.penguin.service.custom.impl.MemberServiceImpl;
-import lk.penguin.service.custom.impl.WelcomeServiceImpl;
+import lk.penguin.service.custom.impl.*;
 
 public class ServiceFactory {
     private static ServiceFactory serviceFactory;
@@ -15,7 +12,7 @@ public class ServiceFactory {
                 :serviceFactory;
     }
     public enum ServiceType{
-        WELCOME,BOOKS,MEMBER,BRANCH
+        WELCOME,BOOKS,MEMBER,BRANCH,PANE1
     }
 
     public SuperService getService(ServiceType serviceType){
@@ -28,6 +25,8 @@ public class ServiceFactory {
                 return new MemberServiceImpl();
             case BRANCH:
                 return new BranchServiceImpl();
+            case PANE1:
+                return new Pane1ServiceImpl();
             default:
                 return null;
         }

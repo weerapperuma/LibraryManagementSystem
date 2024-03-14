@@ -32,18 +32,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User ifExists(String userId) {
-        try{
-            Integer intUserId=Integer.valueOf(userId);
-            User user=session.get(User.class,intUserId);
-
-            if(user==null){
-                return null;
-            }
-            return user;
-        }catch (Exception e){
-            e.printStackTrace();
-            throw e;
-        }
+        return  session.get(User.class,userId);
     }
 
     @Override

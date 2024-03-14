@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="104.0" prefWidth="1880.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.ShowAllBooksRawController">
+   <children>
+      <ImageView fitHeight="63.0" fitWidth="77.0" layoutX="174.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/img/book.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="17.0" layoutY="26.0" prefHeight="63.0" prefWidth="106.0" text="456708">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="263.0" layoutY="26.0" prefHeight="63.0" prefWidth="229.0" text="Madol Duwa">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="534.0" layoutY="26.0" prefHeight="63.0" prefWidth="362.0" text="Martin Wikramasingha">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="905.0" layoutY="23.0" prefHeight="63.0" prefWidth="362.0" text="Availabe">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="1640.0" layoutY="26.0" prefHeight="63.0" prefWidth="210.0" text="Fiction">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

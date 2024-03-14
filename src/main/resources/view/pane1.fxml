@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -9,7 +10,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="1016.0" prefWidth="1900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.Pane1Controller">
@@ -21,26 +21,70 @@
                   <Font name="FreeMono Bold Oblique" size="36.0" />
                </font>
             </Label>
-            <TextField layoutX="413.0" layoutY="30.0" prefHeight="46.0" prefWidth="1097.0" style="-fx-background-radius: 20;" stylesheets="@../style/iconButton.css" />
             <ImageView fitHeight="98.0" fitWidth="171.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assests/img/bgBookWorm.png" />
                </image>
             </ImageView>
+            <TextField fx:id="txtSignUserName" layoutX="1024.0" layoutY="54.0" prefHeight="30.0" prefWidth="180.0" promptText="user name" />
+            <TextField fx:id="txtSignUserPassword" layoutX="1213.0" layoutY="54.0" prefHeight="30.0" prefWidth="171.0" promptText="password" />
+            <JFXButton fx:id="fxSignInBtn" layoutX="1398.0" layoutY="53.0" onAction="#btnSignInOnAction" prefHeight="24.0" prefWidth="108.0" styleClass="btnAdd" stylesheets="@../style/iconButton.css" text="Sign In" textFill="#4fb0dd" />
          </children>
          <effect>
             <Glow />
          </effect>
       </Pane>
-      <Pane layoutY="98.0" prefHeight="917.0" prefWidth="1521.0" style="-fx-border-color: black;">
+      <Pane layoutY="99.0" prefHeight="917.0" prefWidth="1900.0" style="-fx-border-color: black;">
          <children>
-            <JFXButton layoutX="592.0" layoutY="318.0" onAction="#down" prefHeight="98.0" prefWidth="171.0" style="-fx-background-color: grey;" />
+            <Label layoutX="724.0" layoutY="125.0" prefHeight="30.0" prefWidth="592.0" text="Discover 2,934 books by ,">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="928.0" fitWidth="1900.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/img/crooped2.jpg" />
+               </image>
+            </ImageView>
+            <Hyperlink layoutX="628.0" layoutY="384.0" onAction="#hplinksignup" prefHeight="40.0" prefWidth="301.0" text="new? start here........" textFill="WHITE" visited="true">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Hyperlink>
+            <Label layoutX="765.0" layoutY="198.0" prefHeight="44.0" prefWidth="404.0" text="title,author or ISBN">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtsearchBar" layoutX="389.0" layoutY="299.0" prefHeight="46.0" prefWidth="995.0" promptText="      search the collection">
+               <font>
+                  <Font size="24.0" />
+               </font></TextField>
+            <JFXButton layoutX="1384.0" layoutY="299.0" onAction="#btnSearchBarOnAction" prefHeight="46.0" prefWidth="122.0" style="-fx-background-color: #1f29e8;" text="Search">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="941.0" layoutY="389.0" text="&amp;">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Hyperlink layoutX="1004.0" layoutY="381.0" onAction="#hplinkShowAllBooks" prefHeight="40.0" prefWidth="301.0" text="show all books here........" textFill="WHITE" visited="true">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Hyperlink>
+            <ImageView fitHeight="112.0" fitWidth="108.0" layoutX="520.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/img/book.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="1519.0" layoutY="98.0" prefHeight="917.0" prefWidth="380.0" style="-fx-border-color: blue;" />
-      <Pane layoutX="1522.0" layoutY="1.0" prefHeight="98.0" prefWidth="374.0" style="-fx-background-color: #4fb0dd;">
+      <Pane layoutX="1522.0" layoutY="1.0" prefHeight="98.0" prefWidth="357.0">
          <children>
-            <JFXButton fx:id="fxmainSearchButton" layoutX="90.0" layoutY="31.0" onAction="#mainSearchButtonOnAction" styleClass="btn" stylesheets="@../style/iconButton.css" text="">
+            <JFXButton fx:id="fxBtnAddedCart" layoutX="90.0" layoutY="31.0" onAction="#btnAddedCart" styleClass="btn" stylesheets="@../style/iconButton.css" text="">
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -49,16 +93,40 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton layoutX="177.0" layoutY="37.0" onAction="#btnSignOptionOnAction" prefHeight="24.0" prefWidth="108.0" styleClass="btnAdd" stylesheets="@../style/iconButton.css" text="Sign In" textFill="#4fb0dd" />
-            <VBox fx:id="fxSignUpVbox" layoutX="183.0" layoutY="103.0" prefHeight="75.0" prefWidth="140.0">
-               <children>
-                  <Hyperlink prefHeight="29.0" prefWidth="100.0" text="Signup" />
-                  <Hyperlink layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="144.0" text="PasswordChange" />
-                  <Hyperlink layoutX="10.0" layoutY="39.0" prefHeight="29.0" prefWidth="144.0" text="Login" />
-               </children>
-            </VBox>
-            <JFXButton layoutX="86.0" layoutY="4.0" onAction="#btnExitOnAction" prefHeight="26.0" prefWidth="212.0" styleClass="btnClose" stylesheets="@../style/iconButton.css" text="" />
+            <JFXButton layoutX="328.0" layoutY="2.0" onAction="#btnExitOnAction" prefHeight="25.0" prefWidth="24.0" styleClass="btnClose" stylesheets="@../style/iconButton.css" text="" />
          </children>
       </Pane>
+      <Pane fx:id="pane1bottom1" layoutY="537.0" prefHeight="478.0" prefWidth="640.0">
+         <children>
+            <Label fx:id="lblusrIdTxt" layoutX="34.0" layoutY="41.0" prefHeight="16.0" prefWidth="279.0" text="User ID">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUsrIdShow" layoutX="34.0" layoutY="74.0" prefHeight="16.0" prefWidth="279.0" style="-fx-background-color: white;" text="User ID">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTimeTodatTxt" layoutX="34.0" layoutY="120.0" prefHeight="16.0" prefWidth="279.0" text="Order Date">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTimeTodayShow" layoutX="34.0" layoutY="150.0" prefHeight="16.0" prefWidth="279.0" style="-fx-background-color: white;" text="date">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblReturntxt" layoutX="34.0" layoutY="203.0" prefHeight="16.0" prefWidth="279.0" text="Return Date">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="dpReturnDate" layoutX="34.0" layoutY="245.0" prefHeight="30.0" prefWidth="279.0" />
+            <JFXButton fx:id="fxsearchBooksbtn" layoutX="39.0" layoutY="326.0" onAction="#btnAvailableBooksOnAction" prefHeight="37.0" prefWidth="513.0" styleClass="btnSave" stylesheets="@../style/iconButton.css" text="Search Available Books" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane1bottom2" layoutX="642.0" layoutY="537.0" prefHeight="478.0" prefWidth="1246.0" />
    </children>
 </AnchorPane>
