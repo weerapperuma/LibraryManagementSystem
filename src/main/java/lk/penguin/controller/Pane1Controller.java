@@ -4,11 +4,14 @@ import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import lk.penguin.dto.BooksDto;
 import lk.penguin.service.ServiceFactory;
 import lk.penguin.service.custom.Pane1Service;
 import lk.penguin.service.custom.impl.Pane1ServiceImpl;
@@ -19,6 +22,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Pane1Controller {
@@ -155,4 +159,25 @@ public class Pane1Controller {
         txtSignUserName.setOnAction(event ->txtSignUserPassword.requestFocus());
         txtSignUserPassword.setOnAction(event -> fxSignInBtn.fire());
     }
+
+    public void refreshCartForm() throws IOException {
+        ArrayList<BooksDto>cartList=OrderAvailableBooksFormController.addedCartBookList;
+        transactionVbox.getChildren().clear();
+        if(cartList !=null){
+            for(BooksDto booksDTO: cartList){
+                createBookPane(booksDTO);
+            }
+        }
+    }
+
+    private void createBookPane(BooksDto booksDTO) throws IOException {
+        FXMLLoader loader=new FXMLLoader(BookManageFormController.class.getResource("/view/transactionAddedCartRawPane.fxml"));
+        Parent root=loader.load();
+        TransactionAddedCartRawPaneController transactionAddedCartRawPaneController=loader.getController();
+
+        transactionAddedCartRawPaneController.setDTO(booksDTO);
+
+        transactionVbox.getChildren().add(root);
+    }
+
 }

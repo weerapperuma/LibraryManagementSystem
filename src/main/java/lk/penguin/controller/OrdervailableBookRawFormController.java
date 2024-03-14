@@ -33,8 +33,9 @@ public class OrdervailableBookRawFormController {
     private Label lblbookID;
 
     @FXML
-    void btnaddTransactionAddCart(ActionEvent event) {
+    void btnaddTransactionAddCart(ActionEvent event) throws IOException {
         ArrayList<BooksDto>list=OrderAvailableBooksFormController.availableBookList;
+        ArrayList<BooksDto>cartlist=OrderAvailableBooksFormController.addedCartBookList;
         int bookIdToRemove= Integer.parseInt(lblbookID.getText());
         BooksDto bookDtoToDelete=null;
         for(BooksDto booksDto:list){
@@ -45,7 +46,10 @@ public class OrdervailableBookRawFormController {
 
         }if(bookDtoToDelete!=null){
             list.remove(bookDtoToDelete);
+            cartlist.add(bookDtoToDelete);
+            Pane1Controller.getPane1Controller().refreshCartForm();
             OrderAvailableBooksFormController.availableBookList=list;
+            OrderAvailableBooksFormController.addedCartBookList=cartlist;
             try {
                 OrderAvailableBooksFormController.getController().refreshTable();
             } catch (IOException e) {

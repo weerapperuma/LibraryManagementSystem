@@ -31,6 +31,7 @@ public class OrderAvailableBooksFormController {
 
     public void initialize() throws IOException {
         availableBookList =bookManageService.getAvailableBooks();
+        addedCartBookList=new ArrayList<>();
         refreshTable();
     }
 
