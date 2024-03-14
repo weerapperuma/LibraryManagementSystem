@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="960.0" prefWidth="1886.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.ShowAllBooksFormController">
+    <children>
+        <Pane layoutX="7.0" layoutY="53.0" prefHeight="899.0" prefWidth="1870.0" style="-fx-border-color: brown;">
+            <children>
+                <ScrollPane layoutX="1.0" prefHeight="899.0" prefWidth="1870.0">
+                    <content>
+                        <VBox fx:id="fxBookVbox" prefHeight="894.0" prefWidth="1861.0" />
+                    </content>
+                </ScrollPane>
+            </children>
+        </Pane>
+        <Label layoutX="610.0" layoutY="18.0" prefHeight="31.0" prefWidth="92.0" style="-fx-background-color: orange;" text=" Availability">
+            <font>
+                <Font name="Consolas Bold" size="12.0" />
+            </font></Label>
+        <Label layoutX="417.0" layoutY="18.0" prefHeight="31.0" prefWidth="188.0" style="-fx-background-color: orange;" text=" Author">
+            <font>
+                <Font name="Consolas Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="321.0" layoutY="18.0" prefHeight="31.0" prefWidth="92.0" style="-fx-background-color: orange;" text=" Genre">
+            <font>
+                <Font name="Consolas Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="59.0" layoutY="18.0" prefHeight="31.0" prefWidth="257.0" style="-fx-background-color: orange;" text=" Book Name">
+            <font>
+                <Font name="Consolas Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER" layoutX="16.0" layoutY="18.0" prefHeight="31.0" prefWidth="37.0" style="-fx-background-color: orange;" text="ID">
+            <font>
+                <Font name="Consolas Bold" size="12.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

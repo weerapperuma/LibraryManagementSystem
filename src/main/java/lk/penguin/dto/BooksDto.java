@@ -12,7 +12,7 @@ import java.awt.print.Book;
 @AllArgsConstructor
 @Data
 public class BooksDto {
-    private long bookId;
+    private int bookId;
     private String bookTitle;
     private String genre;
     private String author;

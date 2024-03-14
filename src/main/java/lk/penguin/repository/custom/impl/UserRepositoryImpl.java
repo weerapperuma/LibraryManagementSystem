@@ -32,7 +32,11 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User ifExists(String userId) {
-        return  session.get(User.class,userId);
+        Integer id=Integer.valueOf(userId);
+        User user= (User) session.createQuery("FROM User WHERE userLoginId = :userLoginID")
+                .setParameter("userLoginID",id)
+                .uniqueResult();
+        return user;
     }
 
     @Override

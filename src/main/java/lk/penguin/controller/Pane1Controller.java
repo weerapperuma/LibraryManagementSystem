@@ -13,6 +13,10 @@ import lk.penguin.service.custom.Pane1Service;
 import lk.penguin.service.custom.impl.Pane1ServiceImpl;
 import lk.penguin.util.Navigation;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Pane1Controller {
 
     @FXML
@@ -63,7 +67,8 @@ public class Pane1Controller {
     }
 
     @FXML
-    void btnAvailableBooksOnAction(ActionEvent event) {
+    void btnAvailableBooksOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPaging(Pane2Controller.getPane2Controller().fxPanePane2,"/view/orderAvailableBooksForm.fxml");
         Navigation.autoScrollToBottom();
     }
 
@@ -85,11 +90,26 @@ public class Pane1Controller {
             txtSignUserName.setVisible(false);
             txtSignUserPassword.setVisible(false);
             fxSignInBtn.setVisible(false);
+
+            transactionFormLabelVisible(true);
+            lblUsrIdShow.setText(txtSignUserName.getText());
+            lblTimeTodayShow.setText(setTodayDate());
         }
     }
 
+    private void transactionFormLabelVisible(boolean b) {
+        lblusrIdTxt.setVisible(b);
+        lblUsrIdShow.setVisible(b);
+        lblTimeTodatTxt.setVisible(b);
+        lblTimeTodayShow.setVisible(b);
+        lblReturntxt.setVisible(b);
+        dpReturnDate.setVisible(b);
+        fxsearchBooksbtn.setVisible(b);
+    }
+
     @FXML
-    void hplinkShowAllBooks(ActionEvent event) {
+    void hplinkShowAllBooks(ActionEvent event) throws IOException {
+        Navigation.switchPaging(Pane2Controller.getPane2Controller().fxPanePane2,"/view/showAllBooksForm.fxml");
         Navigation.autoScrollToBottom();
     }
 
@@ -97,14 +117,18 @@ public class Pane1Controller {
     void hplinksignup(ActionEvent event) {
 
     }
+    public String setTodayDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String currentDate = dateFormat.format(new Date());
+        lblTimeTodayShow.setText(currentDate);
+        return currentDate;
+    }
 
     public void initialize(){
-        lblusrIdTxt.setVisible(false);
-        lblUsrIdShow.setVisible(false);
-        lblTimeTodatTxt.setVisible(false);
-        lblTimeTodayShow.setVisible(false);
-        lblReturntxt.setVisible(false);
-        dpReturnDate.setVisible(false);
-        fxsearchBooksbtn.setVisible(false);
+        transactionFormLabelVisible(false);
+        dpReturnDate.setOnAction(event ->fxsearchBooksbtn.fire());
+
+        txtSignUserName.setOnAction(event ->txtSignUserPassword.requestFocus());
+        txtSignUserPassword.setOnAction(event -> fxSignInBtn.fire());
     }
 }
