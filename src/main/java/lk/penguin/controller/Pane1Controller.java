@@ -8,10 +8,14 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import lk.penguin.service.ServiceFactory;
 import lk.penguin.service.custom.Pane1Service;
 import lk.penguin.service.custom.impl.Pane1ServiceImpl;
 import lk.penguin.util.Navigation;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -19,11 +23,22 @@ import java.util.Date;
 
 public class Pane1Controller {
 
+    public static Pane1Controller pane1Controller;
+    public Pane1Controller(){
+        pane1Controller=this;
+    }
+
+    public static Pane1Controller getPane1Controller() {
+        return pane1Controller;
+    }
+
     @FXML
     private DatePicker dpReturnDate;
 
     @FXML
     private JFXButton fxBtnAddedCart;
+    @FXML
+    public VBox transactionVbox;
 
     @FXML
     private JFXButton fxSignInBtn;
@@ -67,7 +82,7 @@ public class Pane1Controller {
     Pane1Service pane1Service= (Pane1ServiceImpl) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceType.PANE1);
     @FXML
     void btnAddedCart(ActionEvent event) {
-        addCartPane.setVisible(true);
+        addCartPane.setVisible(!addCartPane.isVisible());
     }
     @FXML
     void btncompleteTransaction(ActionEvent event) {

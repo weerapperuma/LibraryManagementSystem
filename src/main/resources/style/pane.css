@@ -15,3 +15,9 @@
 .hover-background:hover {
     -fx-background-color: #cee8ce; /* Color when hovered */
 }
+.hover-addCollection1{
+    -fx-background-color: #ffffff;
+}
+.hover-addCollection1:hover{
+    -fx-background-color: #2a542a;
+}

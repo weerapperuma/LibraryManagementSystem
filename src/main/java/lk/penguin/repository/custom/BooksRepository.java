@@ -8,4 +8,6 @@ import java.util.ArrayList;
 
 public interface BooksRepository extends CrudUtil<Books> {
 
+    ArrayList<Books> getAllAvailable();
+
 }

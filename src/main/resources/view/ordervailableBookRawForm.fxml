@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="63.0" prefWidth="1861.0" styleClass="hover-background" stylesheets="@../style/pane.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.OrdervailableBookRawFormController">
+    <children>
+        <Label fx:id="lblbookID" layoutX="14.0" layoutY="4.0" prefHeight="54.0" prefWidth="106.0" text="456708" textFill="#0022ff">
+            <font>
+                <Font name="System Bold Italic" size="24.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblBookName" layoutX="265.0" layoutY="6.0" prefHeight="54.0" prefWidth="496.0" text="Madol Duwa" textFill="MAGENTA">
+            <font>
+                <Font name="System Bold Italic" size="24.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblAuthorName" layoutX="791.0" layoutY="5.0" prefHeight="54.0" prefWidth="584.0" text="Martin Wikramasingha" textFill="#178994">
+            <font>
+                <Font name="System Bold Italic" size="24.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblAvailability" layoutX="1402.0" layoutY="4.0" prefHeight="54.0" prefWidth="188.0" text="Availabe">
+            <font>
+                <Font name="System Bold Italic" size="24.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblGenre" alignment="CENTER" layoutX="1597.0" layoutY="4.0" prefHeight="54.0" prefWidth="253.0" text="Fiction" textFill="#278335">
+            <font>
+                <Font name="System Bold Italic" size="24.0" />
+            </font>
+        </Label>
+      <JFXButton fx:id="addTransactionAddCart" layoutX="161.0" layoutY="9.0" onAction="#btnaddTransactionAddCart" styleClass="hover-addCollection1" text="">
+         <graphic>
+              <ImageView fitHeight="42.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../assests/icon/icons8-add-64.png" />
+                  </image>
+              </ImageView>
+         </graphic></JFXButton>
+    </children>
+</AnchorPane>

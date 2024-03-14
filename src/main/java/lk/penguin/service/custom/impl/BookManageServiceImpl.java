@@ -67,4 +67,24 @@ public class BookManageServiceImpl implements BookManageService {
         Books books=new Books(booksDTO.getBookId(),booksDTO.getBookTitle(),booksDTO.getGenre(),booksDTO.getAuthor(),booksDTO.getAvailability(),booksDTO.getAdmin());
         return booksRepository.update(books);
     }
+
+    @Override
+    public ArrayList<BooksDto> getAvailableBooks() {
+        session=SessionFactoryConfig.getInstance().getSession();
+        try {
+            booksRepository.setSession(session);
+            ArrayList<Books> books=booksRepository.getAllAvailable();
+            ArrayList<BooksDto>booksDtos=new ArrayList<>();
+
+            for(Books books1:books){
+                booksDtos.add(books1.toDto());
+            }
+            return booksDtos;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }finally {
+            session.close();
+        }
+    }
 }

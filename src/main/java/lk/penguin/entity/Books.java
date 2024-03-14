@@ -1,5 +1,6 @@
 package lk.penguin.entity;
 
+import lk.penguin.dto.BooksDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,4 +32,15 @@ public class Books {
     @ManyToOne
     @JoinColumn(name = "admin_id")
     private Admin admin;
+
+    public BooksDto toDto() {
+        return new BooksDto(
+                bookId,
+                bookTitle,
+                genre,
+                author,
+                availability,
+                admin
+        );
+    }
 }

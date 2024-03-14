@@ -92,4 +92,10 @@ public class BooksRepositoryImpl implements BooksRepository {
     }
 
 
+    @Override
+    public ArrayList<Books> getAllAvailable() {
+        String query = "SELECT b FROM Books b WHERE b.availability = 'available'";
+        Query<Books> query1 = session.createQuery(query, Books.class);
+        return (ArrayList<Books>) query1.list();
+    }
 }

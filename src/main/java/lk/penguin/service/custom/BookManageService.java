@@ -13,4 +13,6 @@ public interface BookManageService extends SuperService {
     boolean delete(int lblBookID);
 
     boolean update(BooksDto booksDTO);
+
+    ArrayList<BooksDto> getAvailableBooks();
 }

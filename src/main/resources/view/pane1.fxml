@@ -134,7 +134,7 @@
          <children>
             <ScrollPane prefHeight="425.0" prefWidth="363.0">
                <content>
-                  <VBox prefHeight="373.0" prefWidth="358.0" />
+                  <VBox fx:id="transactionVbox" prefHeight="373.0" prefWidth="358.0" />
                </content>
             </ScrollPane>
             <JFXButton fx:id="fxCompleteTransactionBtn" layoutX="65.0" layoutY="374.0" onAction="#btncompleteTransaction" prefHeight="37.0" prefWidth="229.0" styleClass="btnAdd" stylesheets="@../style/iconButton.css" text="Transaction Done" textFill="#4fb0dd" />

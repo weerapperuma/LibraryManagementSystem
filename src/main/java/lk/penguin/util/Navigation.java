@@ -1,5 +1,6 @@
 package lk.penguin.util;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -83,8 +84,11 @@ public class Navigation {
 
     public static void autoScrollToBottom(){
         if(scrollPane !=null){
-            double scrollPosition = scrollPane.getVmax();
-            scrollPane.setVvalue(scrollPosition);
+            /*double scrollPosition = scrollPane.getVmax();
+            scrollPane.setVvalue(scrollPosition);*/
+            Platform.runLater(() -> {
+                scrollPane.setVvalue(1.0); // 1.0 for bottom
+            });
         }
     }
 }
