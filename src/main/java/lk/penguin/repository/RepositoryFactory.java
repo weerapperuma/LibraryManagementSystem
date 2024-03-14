@@ -1,9 +1,6 @@
 package lk.penguin.repository;
 
-import lk.penguin.repository.custom.impl.AdminRepositoryImpl;
-import lk.penguin.repository.custom.impl.BooksRepositoryImpl;
-import lk.penguin.repository.custom.impl.BranchRepositoryImpl;
-import lk.penguin.repository.custom.impl.UserRepositoryImpl;
+import lk.penguin.repository.custom.impl.*;
 import org.apache.commons.beanutils.PropertyUtilsBean;
 
 public class RepositoryFactory {
@@ -16,7 +13,7 @@ public class RepositoryFactory {
                 :repositoryFactory;
     }
     public enum RepositoryType{
-        ADMIN,USER,BOOKS,BRANCH
+        ADMIN,USER,BOOKS,BRANCH,TRANSACTION
     }
     public SuperRepository getRepository(RepositoryType repositoryType){
         switch (repositoryType){
@@ -28,6 +25,8 @@ public class RepositoryFactory {
                 return new BooksRepositoryImpl();
             case BRANCH:
                 return new BranchRepositoryImpl();
+            case TRANSACTION:
+                return new TransactionRepositoryImpl();
             default:
                 return null;
         }

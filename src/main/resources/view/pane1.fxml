@@ -4,12 +4,14 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="1016.0" prefWidth="1900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.Pane1Controller">
@@ -84,7 +86,7 @@
       </Pane>
       <Pane layoutX="1522.0" layoutY="1.0" prefHeight="98.0" prefWidth="357.0">
          <children>
-            <JFXButton fx:id="fxBtnAddedCart" layoutX="90.0" layoutY="31.0" onAction="#btnAddedCart" styleClass="btn" stylesheets="@../style/iconButton.css" text="">
+            <JFXButton fx:id="fxBtnAddedCart" layoutX="90.0" layoutY="14.0" onAction="#btnAddedCart" prefHeight="62.0" prefWidth="194.0" styleClass="btn" stylesheets="@../style/iconButton.css" text="">
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -128,5 +130,15 @@
          </children>
       </Pane>
       <Pane fx:id="pane1bottom2" layoutX="642.0" layoutY="537.0" prefHeight="478.0" prefWidth="1246.0" />
+      <Pane fx:id="addCartPane" layoutX="1519.0" layoutY="99.0" prefHeight="425.0" prefWidth="363.0">
+         <children>
+            <ScrollPane prefHeight="425.0" prefWidth="363.0">
+               <content>
+                  <VBox prefHeight="373.0" prefWidth="358.0" />
+               </content>
+            </ScrollPane>
+            <JFXButton fx:id="fxCompleteTransactionBtn" layoutX="65.0" layoutY="374.0" onAction="#btncompleteTransaction" prefHeight="37.0" prefWidth="229.0" styleClass="btnAdd" stylesheets="@../style/iconButton.css" text="Transaction Done" textFill="#4fb0dd" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

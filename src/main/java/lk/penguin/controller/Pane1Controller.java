@@ -60,10 +60,18 @@ public class Pane1Controller {
 
     @FXML
     private TextField txtSignUserPassword;
+    @FXML
+    private Pane addCartPane;
+    @FXML
+    private JFXButton fxCompleteTransactionBtn;
     Pane1Service pane1Service= (Pane1ServiceImpl) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceType.PANE1);
     @FXML
     void btnAddedCart(ActionEvent event) {
-
+        addCartPane.setVisible(true);
+    }
+    @FXML
+    void btncompleteTransaction(ActionEvent event) {
+        addCartPane.setVisible(false);
     }
 
     @FXML
@@ -125,6 +133,7 @@ public class Pane1Controller {
     }
 
     public void initialize(){
+        addCartPane.setVisible(false);
         transactionFormLabelVisible(false);
         dpReturnDate.setOnAction(event ->fxsearchBooksbtn.fire());
 

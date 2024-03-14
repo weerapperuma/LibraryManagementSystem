@@ -1,9 +1,6 @@
 package lk.penguin.util;
 
-import lk.penguin.entity.Admin;
-import lk.penguin.entity.Books;
-import lk.penguin.entity.Branch;
-import lk.penguin.entity.User;
+import lk.penguin.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -19,6 +16,8 @@ public class SessionFactoryConfig {
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Books.class)
                 .addAnnotatedClass(Branch.class)
+                .addAnnotatedClass(Transaction.class)
+                .addAnnotatedClass(TransactionDetail.class)
                 .buildSessionFactory();
     }
 
