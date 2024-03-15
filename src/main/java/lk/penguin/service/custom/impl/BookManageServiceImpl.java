@@ -64,8 +64,8 @@ public class BookManageServiceImpl implements BookManageService {
     @Override
     public boolean update(BooksDto booksDTO) {
         //Admin admin=adminRepository.ifExists(String.valueOf(WelcomeFormController.admin));
-        Books books=new Books(booksDTO.getBookId(),booksDTO.getBookTitle(),booksDTO.getGenre(),booksDTO.getAuthor(),booksDTO.getAvailability(),booksDTO.getAdmin());
-        return booksRepository.update(books);
+        //Books books=new Books(booksDTO.getBookId(),booksDTO.getBookTitle(),booksDTO.getGenre(),booksDTO.getAuthor(),booksDTO.getAvailability(),booksDTO.getAdmin());
+        return booksRepository.update(booksDTO.toEntity());
     }
 
     @Override

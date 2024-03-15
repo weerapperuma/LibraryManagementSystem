@@ -46,6 +46,7 @@ public class User {
     private List<Transaction> transactions=new ArrayList<>();
 
     public User(int userId, String name, int userLoginId, String contact, String userEmail, String userPassword, Admin admin) {
+        
     }
 
 

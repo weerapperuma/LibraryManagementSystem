@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +18,7 @@ import javax.persistence.*;
 public class Books {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "book_Id")
+    @Column(name = "book_Id",columnDefinition = "int")
     private int bookId;
 
     @Column(name = "book_title")
@@ -32,6 +34,20 @@ public class Books {
     @ManyToOne
     @JoinColumn(name = "admin_id")
     private Admin admin;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "books")
+    private List<TransactionDetail> transactionDetails=new ArrayList<>();
+
+    public Books(int bookId, String bookTitle, String genre, String author, String availability, Admin admin) {
+        this.bookId = bookId;
+        this.bookTitle = bookTitle;
+        this.genre = genre;
+        this.author = author;
+        this.availability = availability;
+        this.admin = admin;
+    }
 
     public BooksDto toDto() {
         return new BooksDto(
