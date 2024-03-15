@@ -12,7 +12,7 @@ public class ServiceFactory {
                 :serviceFactory;
     }
     public enum ServiceType{
-        WELCOME,BOOKS,MEMBER,BRANCH,PANE1
+        WELCOME,BOOKS,MEMBER,BRANCH,PANE1,CREATESIGNUP
     }
 
     public SuperService getService(ServiceType serviceType){
@@ -27,6 +27,8 @@ public class ServiceFactory {
                 return new BranchServiceImpl();
             case PANE1:
                 return new Pane1ServiceImpl();
+            case CREATESIGNUP:
+                return new CreateSignUpServiceImpl();
             default:
                 return null;
         }

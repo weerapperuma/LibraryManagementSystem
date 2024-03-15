@@ -131,7 +131,7 @@ public class Pane1Controller {
     @FXML
     void btnSignInOnAction(ActionEvent event) {
         userDto=pane1Service.isExistsUser(txtSignUserName.getText(),txtSignUserPassword.getText());
-        System.out.println(userDto.getUserPassword());
+
         if(userDto!=null){
             txtSignUserName.setVisible(false);
             txtSignUserPassword.setVisible(false);
@@ -160,8 +160,8 @@ public class Pane1Controller {
     }
 
     @FXML
-    void hplinksignup(ActionEvent event) {
-
+    void hplinksignup(ActionEvent event) throws IOException {
+        Navigation.popupPaging(pane1bottom1,"/view/createSIgnUpForm.fxml");
     }
     public String setTodayDate() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");

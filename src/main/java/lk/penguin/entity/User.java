@@ -24,7 +24,7 @@ public class User {
     @Column(name = "user_name")
     private String userName;
 
-    @Column(name="login_id")
+    @Column(name="login_id",unique = true)
     private int userLoginId;
 
     @Column(name = "contact")

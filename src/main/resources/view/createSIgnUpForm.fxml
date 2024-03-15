@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="448.0" prefWidth="319.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.CreateSIgnUpFormController">
+   <children>
+      <Pane layoutX="34.0" layoutY="33.0" prefHeight="365.0" prefWidth="250.0">
+         <children>
+            <TextField fx:id="fxNameNewUsr" layoutX="4.0" layoutY="43.0" prefHeight="32.0" prefWidth="242.0" style="-fx-background-radius: 5;" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
+            <TextField fx:id="fxEmailNewUsr" layoutX="5.0" layoutY="212.0" prefHeight="32.0" prefWidth="242.0" style="-fx-background-radius: 5;" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
+            <PasswordField fx:id="fxpasswordNewUsr" layoutX="4.0" layoutY="268.0" prefHeight="32.0" prefWidth="242.0" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
+            <PasswordField fx:id="fxRePasswordNewUsr" layoutX="4.0" layoutY="324.0" prefHeight="32.0" prefWidth="242.0" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
+            <Label layoutX="112.0" layoutY="306.0" text="Re-Type Password">
+               <font>
+                  <Font name="Cambria Math" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="134.0" layoutY="251.0" text="Give Password">
+               <font>
+                  <Font name="Cambria Math" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="138.0" layoutY="195.0" text="Email Address">
+               <font>
+                  <Font name="Cambria Math" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="195.0" layoutY="25.0" text="Name">
+               <font>
+                  <Font name="Cambria Math" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="4.0" prefHeight="21.0" prefWidth="120.0" text="NEW USER:">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="251.0" layoutX="29.0" layoutY="15.0" startX="131.0" />
+            <Line endX="149.3333740234375" layoutX="-120.0" layoutY="16.0" startX="94.0" />
+            <TextField fx:id="fxNameNewUsrId" layoutX="5.0" layoutY="100.0" prefHeight="32.0" prefWidth="242.0" style="-fx-background-radius: 5;" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
+            <TextField fx:id="fxNewUsrContact" layoutX="4.0" layoutY="155.0" prefHeight="32.0" prefWidth="242.0" style="-fx-background-radius: 5;" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
+            <Label layoutX="192.0" layoutY="83.0" text="userId">
+               <font>
+                  <Font name="Cambria Math" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="180.0" layoutY="138.0" text="Contact">
+               <font>
+                  <Font name="Cambria Math" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Line endX="135.0" endY="-151.5" layoutX="-109.0" layoutY="200.0" startX="135.0" startY="221.0" />
+      <Line endX="135.0" endY="-132.0" layoutX="158.0" layoutY="168.0" startX="135.0" startY="240.0" />
+      <Line endX="421.0" layoutX="-108.0" layoutY="409.0" startX="117.0" />
+      <JFXButton fx:id="fxBtnSignUp" layoutX="107.0" layoutY="412.0" onAction="#btnSignUpnAction" prefHeight="24.0" prefWidth="109.0" styleClass="btn" stylesheets="@../style/iconButton.css" text="SIGN UP" />
+      <JFXButton layoutX="6.0" layoutY="2.0" onAction="#btnClose" prefHeight="26.0" prefWidth="305.0" styleClass="btnClose" stylesheets="@../style/iconButton.css" text="SIGN UP" />
+   </children>
+</AnchorPane>
