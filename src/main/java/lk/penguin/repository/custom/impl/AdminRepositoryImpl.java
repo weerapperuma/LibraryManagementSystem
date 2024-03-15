@@ -1,6 +1,5 @@
 package lk.penguin.repository.custom.impl;
 
-import lk.penguin.dto.TransactionDto;
 import lk.penguin.entity.Admin;
 import lk.penguin.repository.custom.AdminRepository;
 import lk.penguin.util.SessionFactoryConfig;
@@ -54,8 +53,7 @@ public class AdminRepositoryImpl implements AdminRepository {
     }
 
     @Override
-    public boolean update(Admin entity) {
-        return false;
+    public void update(Admin entity) {
     }
 
     @Override

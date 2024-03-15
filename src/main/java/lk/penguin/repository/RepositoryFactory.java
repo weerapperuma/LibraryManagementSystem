@@ -13,7 +13,7 @@ public class RepositoryFactory {
                 :repositoryFactory;
     }
     public enum RepositoryType{
-        ADMIN,USER,BOOKS,BRANCH,TRANSACTION
+        ADMIN,USER,BOOKS,BRANCH,TRANSACTION,TRANSACTIONDETAIL
     }
     public SuperRepository getRepository(RepositoryType repositoryType){
         switch (repositoryType){
@@ -27,6 +27,8 @@ public class RepositoryFactory {
                 return new BranchRepositoryImpl();
             case TRANSACTION:
                 return new TransactionRepositoryImpl();
+            case TRANSACTIONDETAIL:
+                return new TransactionDetailRepositoryImpl();
             default:
                 return null;
         }

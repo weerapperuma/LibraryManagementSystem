@@ -1,6 +1,5 @@
 package lk.penguin.repository.custom.impl;
 
-import lk.penguin.dto.TransactionDto;
 import lk.penguin.entity.Books;
 import lk.penguin.repository.custom.BooksRepository;
 import lk.penguin.util.SessionFactoryConfig;
@@ -36,60 +35,23 @@ public class BooksRepositoryImpl implements BooksRepository {
 
     @Override
     public ArrayList<Books> getAll() {
-        session.beginTransaction();
-        try{
-            Query<Books> query= session.createQuery("from Books ", Books.class);
-            List<Books> booksList=query.list();
-
-            session.getTransaction().commit();
-
-            return new ArrayList<>(booksList);
-
-        }catch (Exception e){
-            if(session.getTransaction().isActive()){
-                session.getTransaction().rollback();
-            }
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
-
+        Query<Books> query= session.createQuery("from Books ", Books.class);
+        List<Books> booksList=query.list();
+        return (ArrayList<Books>) booksList;
     }
 
 
 
     @Override
     public boolean delete(int lblBookID) {
-        Transaction transaction=session.beginTransaction();
-        try {
-            Books books=session.get(Books.class,lblBookID);
-            session.delete(books);
-            transaction.commit();
-            return true;
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            transaction.rollback();
-            return false;
-        }finally {
-            session.close();
-        }
+        Books books=session.get(Books.class,lblBookID);
+        session.delete(books);
+        return true;
     }
 
     @Override
-    public boolean update(Books books) {
-        Transaction transaction=session.beginTransaction();
-        try{
-            session.update(books);
-            transaction.commit();
-            return true;
-        }catch (Exception e){
-            e.printStackTrace();
-            transaction.rollback();
-            return false;
-        }
-        finally {
-            session.close();
-        }
+    public void update(Books books) {
+        session.update(books);
     }
 
 

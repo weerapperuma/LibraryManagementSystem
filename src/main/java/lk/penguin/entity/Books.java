@@ -23,10 +23,13 @@ public class Books {
 
     @Column(name = "book_title")
     private String bookTitle;
+
     @Column(name = "genre")
     private String genre;
+
     @Column(name = "author")
     private String author;
+
     @Column(name = "availability")
     private String availability;
 

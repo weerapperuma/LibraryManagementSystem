@@ -77,7 +77,7 @@ public class BranchServiceImpl implements BranchService {
         session=SessionFactoryConfig.getInstance().getSession();
         try {
             branchRepository.setSession(session);
-            Branch branch=branchRepository.get(id);
+            Branch branch=branchRepository.ifExists(String.valueOf(id));
             return branch.toDto();
         }catch (Exception e){
             e.printStackTrace();
@@ -95,7 +95,7 @@ public class BranchServiceImpl implements BranchService {
         Transaction transaction = session.beginTransaction();
         try {
             branchRepository.setSession(session);
-            branchRepository.delete(branchDetails.toEntity());
+            branchRepository.delete(id);
             transaction.commit();
             return true;
         }catch (Exception e){

@@ -12,16 +12,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import lk.penguin.dto.BooksDto;
+import lk.penguin.dto.TransactionDetailDto;
 import lk.penguin.dto.TransactionDto;
 import lk.penguin.dto.UserDto;
-import lk.penguin.entity.User;
 import lk.penguin.service.ServiceFactory;
 import lk.penguin.service.custom.Pane1Service;
 import lk.penguin.service.custom.impl.Pane1ServiceImpl;
 import lk.penguin.util.Navigation;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -87,6 +84,8 @@ public class Pane1Controller {
     private Pane addCartPane;
     @FXML
     private JFXButton fxCompleteTransactionBtn;
+    TransactionDto transactionDto=null;
+    ArrayList<BooksDto> addedCartBookDtos=null;
     Pane1Service pane1Service= (Pane1ServiceImpl) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceType.PANE1);
     @FXML
     void btnAddedCart(ActionEvent event) {
@@ -94,6 +93,8 @@ public class Pane1Controller {
     }
     @FXML
     void btncompleteTransaction(ActionEvent event) {
+        addedCartBookDtos=OrderAvailableBooksFormController.addedCartBookList;
+        pane1Service.commitTransactions(transactionDto,addedCartBookDtos);
         addCartPane.setVisible(false);
     }
 
@@ -102,15 +103,14 @@ public class Pane1Controller {
     void btnAvailableBooksOnAction(ActionEvent event) throws IOException {
 
 
-        TransactionDto transactionDto=new TransactionDto(
+        transactionDto=new TransactionDto(
                 0,
                 LocalDateTime.now(),
                 dpReturnDate.getValue().atStartOfDay(),
                 "incomplete",
                 userDto
                 );
-        int saved=pane1Service.save(transactionDto);
-        if(saved>0){
+        if(true){
             Navigation.switchPaging(Pane2Controller.getPane2Controller().fxPanePane2,"/view/orderAvailableBooksForm.fxml");
             Navigation.autoScrollToBottom();
             fxsearchBooksbtn.setDisable(true);

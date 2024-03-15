@@ -5,7 +5,7 @@ import lk.penguin.repository.custom.BranchRepository;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class BranchRepositoryImpl implements BranchRepository {
     private Session session;
@@ -20,24 +20,24 @@ public class BranchRepositoryImpl implements BranchRepository {
     }
 
     @Override
+    public boolean delete(int id) {
+        return false;
+    }
+
+    @Override
     public void update(Branch entity) {
          session.update(entity);
     }
 
     @Override
-    public List<Branch> getAll() {
+    public Branch ifExists(String id) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Branch> getAll() {
         String hql="SELECT b FROM Branch b";
         Query<Branch> query = session.createQuery(hql, Branch.class);
-        return query.list();
-    }
-
-    @Override
-    public Branch get(int id) {
-        return session.get(Branch.class,id);
-    }
-
-    @Override
-    public void delete(Branch entity) {
-        session.delete(entity);
+        return (ArrayList<Branch>) query.list();
     }
 }

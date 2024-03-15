@@ -1,33 +1,33 @@
 package lk.penguin.repository.custom.impl;
 
-import lk.penguin.dto.TransactionDto;
-import lk.penguin.entity.Transaction;
 import lk.penguin.entity.TransactionDetail;
-import lk.penguin.repository.custom.TransactionRepository;
+import lk.penguin.repository.custom.TransactionDetailRepository;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
 
-public class TransactionDetailRepositoryImpl implements TransactionRepository {
+public class TransactionDetailRepositoryImpl implements TransactionDetailRepository {
     private Session session;
     @Override
     public void setSession(Session session) {
         this.session=session;
     }
 
+
     @Override
-    public Transaction ifExists(String id) {
+    public TransactionDetail ifExists(String id) {
         return null;
     }
 
     @Override
-    public ArrayList<Transaction> getAll() {
+    public ArrayList<TransactionDetail> getAll() {
         return null;
     }
 
     @Override
-    public int save(Transaction entity) {
-        return 0;
+    public int save(TransactionDetail entity) {
+        int save = (int) session.save(entity);
+        return save;
     }
     @Override
     public boolean delete(int id) {
@@ -35,7 +35,6 @@ public class TransactionDetailRepositoryImpl implements TransactionRepository {
     }
 
     @Override
-    public boolean update(Transaction entity) {
-        return false;
+    public void update(TransactionDetail entity) {
     }
 }

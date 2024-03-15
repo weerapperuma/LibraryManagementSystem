@@ -1,6 +1,5 @@
 package lk.penguin.repository.custom.impl;
 
-import lk.penguin.dto.TransactionDto;
 import lk.penguin.entity.Transaction;
 import lk.penguin.repository.custom.TransactionRepository;
 import org.hibernate.Session;
@@ -35,7 +34,6 @@ public class TransactionRepositoryImpl implements TransactionRepository {
     }
 
     @Override
-    public boolean update(Transaction entity) {
-        return false;
+    public void update(Transaction entity) {
     }
 }

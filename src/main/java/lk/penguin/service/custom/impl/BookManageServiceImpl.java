@@ -38,34 +38,42 @@ public class BookManageServiceImpl implements BookManageService {
 
     @Override
     public int save(BooksDto booksDTO) {
-        session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction=session.beginTransaction();
+        session=SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
         try{
             booksRepository.setSession(session);
             int save = booksRepository.save(booksDTO.toEntity());
             transaction.commit();
-            System.out.println("commit una");
             return save;
         }catch (Exception e){
-            transaction.rollback();
             e.printStackTrace();
-            return -1;
-        }
-        finally {
+            transaction.rollback();
+        }finally {
             session.close();
         }
+        return 0;
     }
 
     @Override
     public boolean delete(int lblBookID) {
-        return booksRepository.delete(lblBookID);
+        session=SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        try{
+            booksRepository.setSession(session);
+            return booksRepository.delete(lblBookID);
+        }catch (Exception e){
+            e.printStackTrace();
+            transaction.rollback();
+        }finally {
+            session.close();
+        }
+        return false;
     }
 
     @Override
     public boolean update(BooksDto booksDTO) {
-        //Admin admin=adminRepository.ifExists(String.valueOf(WelcomeFormController.admin));
-        //Books books=new Books(booksDTO.getBookId(),booksDTO.getBookTitle(),booksDTO.getGenre(),booksDTO.getAuthor(),booksDTO.getAvailability(),booksDTO.getAdmin());
-        return booksRepository.update(booksDTO.toEntity());
+        booksRepository.update(booksDTO.toEntity());
+        return true;
     }
 
     @Override
