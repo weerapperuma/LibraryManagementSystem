@@ -1,10 +1,13 @@
 package lk.penguin.repository.custom.impl;
 
+import lk.penguin.dto.BranchDto;
 import lk.penguin.entity.Transaction;
 import lk.penguin.repository.custom.TransactionRepository;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TransactionRepositoryImpl implements TransactionRepository {
     private Session session;
@@ -20,7 +23,9 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 
     @Override
     public ArrayList<Transaction> getAll() {
-        return null;
+        Query<Transaction> fromTransaction = session.createQuery("from Transaction ", Transaction.class);
+        List<Transaction> list = fromTransaction.list();
+        return (ArrayList<Transaction>) list;
     }
 
     @Override
@@ -29,8 +34,7 @@ public class TransactionRepositoryImpl implements TransactionRepository {
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
+    public void delete(int id) {
     }
 
     @Override

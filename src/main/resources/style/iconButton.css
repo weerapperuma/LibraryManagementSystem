@@ -174,3 +174,26 @@
     -fx-background-radius: 10; /* Ensures the text field part also has rounded corners */
     -fx-font-weight: bold; /* Bold text in the input field */
 }
+
+.btnManageAdmin {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 5 10; /* Adjust padding for content inside the button */
+    -fx-font-size: 20; /* Adjust font size */
+    -fx-alignment: top-center; /* Align text to the top-center */
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-pref-width: 150; /* Preferred width */
+    -fx-pref-height: 200; /* May need adjustment due to rotation */
+    -fx-rotate: -20; /* Rotate button 30 degrees to the left (counter-clockwise) */
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+}
+
+
+
+.btnManageAdmin:hover {
+    -fx-background-color: #00eafe;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}

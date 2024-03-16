@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="bookManagePane" prefHeight="753.0" prefWidth="1630.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.UserManageAdminSideFormContrller">
+    <children>
+        <Pane layoutX="2.0" layoutY="53.0" prefHeight="696.0" prefWidth="1624.0">
+            <children>
+                <ScrollPane layoutX="1.0" prefHeight="696.0" prefWidth="1624.0">
+                    <content>
+                        <VBox fx:id="fxBookVbox" prefHeight="693.0" prefWidth="1617.0" />
+                    </content>
+                </ScrollPane>
+            </children>
+        </Pane>
+        <Pane layoutX="3.0" layoutY="6.0" prefHeight="63.0" prefWidth="1617.0">
+            <children>
+                <Label layoutX="661.0" layoutY="3.0" prefHeight="54.0" prefWidth="391.0" text="Email" textFill="#178994">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblBrnchName" layoutX="199.0" layoutY="4.0" prefHeight="54.0" prefWidth="454.0" text="User Name" textFill="MAGENTA">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <JFXButton layoutX="135.0" layoutY="8.0" styleClass="hover-addCollection1" text="">
+                    <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assests/icon/pencil.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <Label layoutX="11.0" layoutY="4.0" prefHeight="54.0" prefWidth="106.0" text="ID" textFill="#0022ff">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label layoutX="1093.0" layoutY="3.0" prefHeight="54.0" prefWidth="206.0" text="Contact">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="1302.0" layoutY="2.0" prefHeight="54.0" prefWidth="246.0" text="Admin" textFill="#278335">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

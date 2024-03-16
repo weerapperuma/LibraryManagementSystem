@@ -25,7 +25,6 @@ import java.util.ArrayList;
 
 public class Pane1ServiceImpl implements Pane1Service {
     private Session session;
-    public static TransactionDto transactionDto=null;
     UserRepository userRepository= (UserRepositoryImpl) RepositoryFactory.getRepositoryFactory().getRepository(RepositoryFactory.RepositoryType.USER);
     TransactionRepository transactionRepository= (TransactionRepositoryImpl) RepositoryFactory.getRepositoryFactory().getRepository(RepositoryFactory.RepositoryType.TRANSACTION);
     TransactionDetailRepository transactionDetailRepository= (TransactionDetailRepositoryImpl) RepositoryFactory.getRepositoryFactory().getRepository(RepositoryFactory.RepositoryType.TRANSACTIONDETAIL);
@@ -51,55 +50,18 @@ public class Pane1ServiceImpl implements Pane1Service {
             session.close();
         }
     }
-    public boolean updateBookStatus(ArrayList<BooksDto> addedCartBookDtos) {
-        ArrayList<Books>books= new ArrayList<>();
-        for(BooksDto booksDto:addedCartBookDtos){
-            books.add(booksDto.toEntity());
-        }
-        try {
 
-            booksRepository.setSession(session);
-            for(Books books1:books){
-                Books books2=new Books(
-                        books1.getBookId(),
-                        books1.getBookTitle(),
-                        books1.getGenre(),
-                        books1.getAuthor(),
-                        "unavailable",
-                        null
-                );
-                booksRepository.update(books2);
-            }
-            return true;
-
-        }catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    private boolean saveTransactionDetails(TransactionDto transactionDto1, ArrayList<BooksDto> addedCartBookDtos) {
-
-
-        transactionDetailRepository.setSession(session);
-        for(BooksDto booksDto:addedCartBookDtos){
-            TransactionDetailDto transactionDetailDto=new TransactionDetailDto(
-                    0,
-                    LocalDateTime.now(),
-                    booksDto,
-                    transactionDto1
-            );
-            transactionDetailRepository.save(transactionDetailDto.toEntity());
-        }
-        return true;
-    }
     @Override
     public void commitTransactions(TransactionDto transactionDto, ArrayList<BooksDto> addedCartBookDtos) {
         session=SessionFactoryConfig.getInstance().getSession();
         org.hibernate.Transaction transaction = session.beginTransaction();
+
+
         try {
+            //save transaction
             transactionRepository.setSession(session);
             int savedTransaction=transactionRepository.save(transactionDto.toEntity());
+
             TransactionDto transactionDto1=new TransactionDto(
                     savedTransaction,
                     transactionDto.getOrderTime(),
@@ -110,24 +72,21 @@ public class Pane1ServiceImpl implements Pane1Service {
             );
 
             //updateBooks
-            ArrayList<Books>books= new ArrayList<>();
-            for(BooksDto booksDto:addedCartBookDtos){
-                books.add(booksDto.toEntity());
-            }
             booksRepository.setSession(session);
-            for(Books books1:books) {
-                Books books2 = new Books(
-                        books1.getBookId(),
-                        books1.getBookTitle(),
-                        books1.getGenre(),
-                        books1.getAuthor(),
+            for(BooksDto booksDto:addedCartBookDtos){
+                BooksDto booksDto1=new BooksDto(
+                        booksDto.getBookId(),
+                        booksDto.getBookTitle(),
+                        booksDto.getGenre(),
+                        booksDto.getAuthor(),
                         "unavailable",
-                        null
+                        booksDto.getAdmin()
                 );
-                booksRepository.update(books2);
+                booksRepository.update(booksDto1.toEntity());
+                session.flush();
             }
 
-            session.clear();
+
             //save trasaction details
             transactionDetailRepository.setSession(session);
             for(BooksDto booksDto:addedCartBookDtos){
@@ -141,7 +100,6 @@ public class Pane1ServiceImpl implements Pane1Service {
             }
 
             transaction.commit();
-
 
         }catch (Exception e){
             e.printStackTrace();

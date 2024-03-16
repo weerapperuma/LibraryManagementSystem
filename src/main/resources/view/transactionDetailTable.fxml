@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="478.0" prefWidth="1246.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.TransactionDetailTableFormController">
+   <children>
+      <Pane fx:id="transactionTableLoadPane" layoutX="183.0" layoutY="56.0" prefHeight="408.0" prefWidth="726.0">
+         <children>
+            <ScrollPane prefHeight="408.0" prefWidth="726.0" stylesheets="@../style/scrollPane.css">
+               <content>
+                  <VBox fx:id="vbox" prefHeight="404.0" prefWidth="723.0" />
+               </content>
+               <styleClass>
+                  <String fx:value="transparent-background" />
+                  <String fx:value="scroll-bar" />
+                  <String fx:value="transparent-scroll-pane" />
+               </styleClass>
+            </ScrollPane>
+         </children></Pane>
+      <Label layoutX="6.0" layoutY="1.0" prefHeight="35.0" prefWidth="782.0" text="You can search your previous book borrows and returns from here,">
+         <font>
+            <Font name="DejaVu Serif Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="7.0" layoutY="21.0" prefHeight="35.0" prefWidth="1015.0" text="...................also make your return with yourself ....................................." textFill="#9110e5">
+         <font>
+            <Font name="FreeMono Bold Oblique" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

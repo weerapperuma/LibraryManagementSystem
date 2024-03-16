@@ -12,5 +12,5 @@ public interface BranchService extends SuperService {
 
     List<BranchDto> getAllBranches();
 
-    boolean deleteBranch(int id);
+    boolean deleteBranch(int branchId);
 }

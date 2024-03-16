@@ -9,6 +9,7 @@ import lk.penguin.service.custom.BookManageService;
 import lk.penguin.util.Navigation;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public class BookAdminManageFormRawController {
     @FXML
@@ -32,8 +33,7 @@ public class BookAdminManageFormRawController {
     @FXML
     void btnDeleteOnAction(ActionEvent event) throws IOException {
         if(bookManageService.delete(Integer.parseInt(lblBookID.getText()))){
-            Navigation.switchPaging(
-                    UserDashBoard.getUserDashBoard().mainAdminPaneInterface, "/view/bookManageForm.fxml");
+            Navigation.switchPaging(WelcomeFormController.getWelcomeFormController().paneLoader, "/view/bookManageForm.fxml");
         }
     }
 
@@ -45,7 +45,7 @@ public class BookAdminManageFormRawController {
         SaveNewBookFormController.author=lblBookAuthor.getText();
         //SaveNewBookFormController.availability=lblAvailability.getText();
 
-        Navigation.popupPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface, "/view/saveNewBookForm.fxml");
+        Navigation.popupPaging(WelcomeFormController.getWelcomeFormController().paneLoader, "/view/saveNewBookForm.fxml");
 
     }
     public void setDTO(BooksDto booksDTO) {

@@ -24,7 +24,7 @@ public class Branch {
     @Column(name = "branch_district")
     private String branchDistrict;
 
-    @Column(name = "branch_contcat")
+    @Column(name = "branch_contact")
     private String branchContactNb;
 
     @Column(name = "branch_availability")

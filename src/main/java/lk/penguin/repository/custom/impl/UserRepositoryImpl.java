@@ -1,5 +1,6 @@
 package lk.penguin.repository.custom.impl;
 
+import lk.penguin.dto.BranchDto;
 import lk.penguin.entity.User;
 import lk.penguin.repository.custom.UserRepository;
 import org.hibernate.Session;
@@ -23,10 +24,9 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public boolean delete(int id) {
+    public void delete(int id) {
         User user=session.get(User.class,id);
         session.delete(user);
-        return true;
     }
 
     @Override

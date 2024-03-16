@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface MemberService extends SuperService {
     List<UserDto> getAllMembers();
+
+    boolean delete(int id);
 }

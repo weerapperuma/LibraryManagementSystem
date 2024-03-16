@@ -6,27 +6,29 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class UserDto {
+
     private int userId;
     private String name;
     private int userLoginId;
     private String contact;
     private String userEmail;
     private String userPassword;
-    private Admin admin;
+    private AdminDto adminDto;
 
     public User toEntity() {
+        Admin admin=adminDto.toEntity();
         return new User(
-                this.userId,
-                this.name,
-                this.userLoginId,
-                this.contact,
-                this.userEmail,
-                this.userPassword,
-                this.admin
+                userId,
+                name,
+                userLoginId,
+                contact,
+                userEmail,
+                userPassword,
+                admin
         );
     }
 }

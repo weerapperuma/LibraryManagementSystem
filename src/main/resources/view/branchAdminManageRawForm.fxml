@@ -5,50 +5,57 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="40.0" prefWidth="805.0" style="-fx-background-radius: 30; -fx-border-radius: 30;" styleClass="hover-background" stylesheets="@../style/pane.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.BranchAdminManageFormRawController">
+<AnchorPane prefHeight="63.0" prefWidth="1617.0" styleClass="hover-background" stylesheets="@../style/pane.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.BranchAdminManageFormRawController">
    <children>
-      <Label fx:id="lblAvailability" layoutX="603.0" layoutY="4.0" prefHeight="31.0" prefWidth="92.0" text=" Availability">
-         <font>
-            <Font name="Microsoft New Tai Lue Bold" size="14.0" />
-         </font></Label>
-      <JFXButton layoutX="752.0" layoutY="4.0" onAction="#btnDeleteOnAction" prefHeight="27.0" prefWidth="29.0" styleClass="btndelete" stylesheets="@../style/iconButton.css" text="">
-         <graphic>
-            <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assests/icon/delete.png" />
-               </image>
-            </ImageView>
-         </graphic></JFXButton>
-      <JFXButton layoutX="699.0" layoutY="4.0" onAction="#btnUpdateOnAction" styleClass="btn" stylesheets="@../style/iconButton.css" text="">
-         <graphic>
-            <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assests/icon/pencil.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <Label fx:id="lblBranchContact" layoutX="409.0" layoutY="4.0" prefHeight="31.0" prefWidth="188.0" text=" Author">
-         <font>
-            <Font name="Microsoft New Tai Lue Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblBranchdistrict" layoutX="313.0" layoutY="4.0" prefHeight="31.0" prefWidth="92.0" text=" Genre">
-         <font>
-            <Font name="Microsoft New Tai Lue Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblBranchName" layoutX="51.0" layoutY="4.0" prefHeight="31.0" prefWidth="257.0" text=" Book Name">
-         <font>
-            <Font name="Microsoft New Tai Lue Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblBranchID" alignment="CENTER" layoutX="3.0" layoutY="4.0" prefHeight="31.0" prefWidth="42.0" text="ID">
-         <font>
-            <Font name="Microsoft New Tai Lue Bold" size="14.0" />
-         </font>
-      </Label>
+      <Pane prefHeight="63.0" prefWidth="1617.0">
+         <children>
+            <Label fx:id="lblDistrict" layoutX="661.0" layoutY="3.0" prefHeight="54.0" prefWidth="391.0" text="Martin Wikramasingha" textFill="#178994">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblBrnchName" layoutX="199.0" layoutY="4.0" prefHeight="54.0" prefWidth="454.0" text="Madol Duwa" textFill="MAGENTA">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnUpdate" layoutX="135.0" layoutY="8.0" onAction="#btnUpdateOnAction" styleClass="hover-addCollection1" text="">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assests/icon/pencil.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Label fx:id="lblbookID" layoutX="11.0" layoutY="4.0" prefHeight="54.0" prefWidth="106.0" text="456708" textFill="#0022ff">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblContact" layoutX="1093.0" layoutY="4.0" prefHeight="54.0" prefWidth="206.0" text="Availabe">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblAvailability" alignment="CENTER" layoutX="1302.0" layoutY="6.0" prefHeight="54.0" prefWidth="246.0" text="Fiction" textFill="#278335">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="1548.0" layoutY="10.0" onAction="#btnAdelete" styleClass="hover-pane" text="">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assests/icon/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

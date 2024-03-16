@@ -1,5 +1,6 @@
 package lk.penguin.dto;
 
+import lk.penguin.entity.Admin;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,4 +15,16 @@ public class AdminDto {
     private String address;
     private String email;
     private String password;
+
+    public Admin toEntity(){
+        return new Admin(
+                adminID,
+                adminLoginID,
+                adminName,
+                address,
+                email,
+                password
+        );
+
+    }
 }

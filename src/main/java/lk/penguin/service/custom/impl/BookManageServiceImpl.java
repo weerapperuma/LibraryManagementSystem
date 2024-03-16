@@ -18,22 +18,23 @@ public class BookManageServiceImpl implements BookManageService {
     private Session session;
     @Override
     public ArrayList<BooksDto> getAllBooks() {
-        ArrayList<Books>booksAll=booksRepository.getAll();
-        System.out.println(booksAll.size());
+        session=SessionFactoryConfig.getInstance().getSession();
+        try{
+            booksRepository.setSession(session);
+            ArrayList<Books>booksAll=booksRepository.getAll();
 
-        ArrayList<BooksDto> booksDtos = new ArrayList<>();
-        for(Books books1:booksAll){
-            BooksDto booksDTO=new BooksDto(
-              books1.getBookId(),
-              books1.getBookTitle(),
-              books1.getGenre(),
-              books1.getAuthor(),
-              books1.getAvailability(),
-              books1.getAdmin()
-            );
-            booksDtos.add(booksDTO);
+            ArrayList<BooksDto> booksDtos = new ArrayList<>();
+            for(Books books1:booksAll){
+                booksDtos.add(books1.toDto());
+            }
+            return booksDtos;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }finally {
+            session.close();
         }
-        return booksDtos;
+
     }
 
     @Override
@@ -60,7 +61,9 @@ public class BookManageServiceImpl implements BookManageService {
         Transaction transaction = session.beginTransaction();
         try{
             booksRepository.setSession(session);
-            return booksRepository.delete(lblBookID);
+            booksRepository.delete(lblBookID);
+            transaction.commit();
+            return true;
         }catch (Exception e){
             e.printStackTrace();
             transaction.rollback();
@@ -72,8 +75,21 @@ public class BookManageServiceImpl implements BookManageService {
 
     @Override
     public boolean update(BooksDto booksDTO) {
-        booksRepository.update(booksDTO.toEntity());
-        return true;
+        session=SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        try{
+            booksRepository.setSession(session);
+            booksRepository.update(booksDTO.toEntity());
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            transaction.rollback();
+            return false;
+        }finally {
+            session.close();
+        }
+
     }
 
     @Override

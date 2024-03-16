@@ -11,6 +11,7 @@ import lk.penguin.service.ServiceFactory;
 import lk.penguin.service.custom.BranchService;
 import lk.penguin.service.custom.impl.BranchServiceImpl;
 import lk.penguin.util.Navigation;
+import lk.penguin.util.RegexUtil;
 
 import java.io.IOException;
 
@@ -44,7 +45,7 @@ public class SaveNewBranchFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) throws IOException {
-        if(true){
+        if(RegexUtil.validateBranch(txtaBranchName.getText(),txtContactNum.getText())){
             BranchDto branchDto=new BranchDto(
                     0,
                     txtaBranchName.getText(),
@@ -56,8 +57,8 @@ public class SaveNewBranchFormController {
             );
 
             int save = branchService.save(branchDto);
-            if(true) {
-                Navigation.switchPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface, "/view/branchManageForm.fxml");
+            if(save>0) {
+                Navigation.switchPaging(WelcomeFormController.getWelcomeFormController().paneLoader, "/view/branchManageForm.fxml");
                 Navigation.closePopup();
             }
         }

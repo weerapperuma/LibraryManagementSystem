@@ -20,6 +20,7 @@ public class TransactionDto {
 
     public Transaction toEntity() {
         User user=userDto.toEntity();
+
         return new Transaction(
                 transactionId,
                 orderTime,
@@ -28,4 +29,5 @@ public class TransactionDto {
                 user
         );
     }
+
 }

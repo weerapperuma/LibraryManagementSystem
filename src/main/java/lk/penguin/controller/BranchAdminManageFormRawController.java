@@ -1,5 +1,6 @@
 package lk.penguin.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -13,60 +14,60 @@ import java.io.IOException;
 
 public class BranchAdminManageFormRawController {
 
+
+    private final BranchService branchService= (BranchServiceImpl) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceType.BRANCH);
+
+    @FXML
+    private JFXButton btnUpdate;
+
     @FXML
     private Label lblAvailability;
 
     @FXML
-    private Label lblBranchContact;
+    private Label lblBrnchName;
 
     @FXML
-    private Label lblBranchID;
+    private Label lblContact;
 
     @FXML
-    private Label lblBranchName;
+    private Label lblDistrict;
 
     @FXML
-    private Label lblBranchdistrict;
-
-    public static int branchId;
-    public static String branchName=null;
-    public static String branchContact=null;
-    public static String district =null;
-    public static String availability =null;
-    private final BranchService branchService= (BranchServiceImpl) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceType.BRANCH);
+    private Label lblbookID;
+    public static BranchDto branchDto;
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
-        boolean isDeleted = branchService.deleteBranch(Integer.parseInt(lblBranchID.getText()));
-        if(isDeleted){
-            try {
-                Navigation.switchPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface, "/view/branchManageForm.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
-    @FXML
-    void btnUpdateOnAction(ActionEvent event) {
-        branchId= Integer.parseInt(lblBranchID.getText());
-        branchName = lblBranchName.getText();
-        branchContact=lblBranchContact.getText();
-        availability=lblAvailability.getText();
-        district=lblBranchdistrict.getText();
+    void btnAdelete(ActionEvent event) {
         try {
-            Navigation.popupPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface, "/view/saveNewBranch.fxml");
+            branchService.deleteBranch(Integer.parseInt(lblbookID.getText()));
+            Navigation.switchPaging(WelcomeFormController.getWelcomeFormController().paneLoader, "/view/branchManageForm.fxml");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-
-    public void setDTO(BranchDto branchDto) {
-        lblBranchID.setText(String.valueOf(branchDto.getBranchId()));
-        lblBranchName.setText(branchDto.getBranchName());
-        lblBranchContact.setText(branchDto.getBranchContactNb());
-        lblAvailability.setText(branchDto.getBranchAvailability());
-        lblBranchdistrict.setText(branchDto.getBranchDistrict());
+    @FXML
+    void btnUpdateOnAction(ActionEvent event) {
+        branchDto=new BranchDto(
+                Integer.parseInt(lblbookID.getText()),
+                lblBrnchName.getText(),
+                lblDistrict.getText(),
+                lblContact.getText(),
+                lblAvailability.getText(),
+                WelcomeFormController.admin
+        );
+        try {
+            Navigation.popupPaging(WelcomeFormController.getWelcomeFormController().paneLoader, "/view/updateBranchForm.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
+    public void setDTO(BranchDto branchDto) {
+        lblbookID.setText(String.valueOf(branchDto.getBranchId()));
+        lblBrnchName.setText(branchDto.getBranchName());
+        lblDistrict.setText(branchDto.getBranchDistrict());
+        lblContact.setText(branchDto.getBranchContactNb());
+        lblAvailability.setText(branchDto.getBranchAvailability());
+    }
+
+
 }

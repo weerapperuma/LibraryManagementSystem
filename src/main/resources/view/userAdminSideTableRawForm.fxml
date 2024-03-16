@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="63.0" prefWidth="1617.0" styleClass="hover-background" stylesheets="@../style/pane.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.UserAdminSideRawFormController">
+    <children>
+        <Pane prefHeight="63.0" prefWidth="1617.0">
+            <children>
+                <Label fx:id="lblUserEmail" layoutX="661.0" layoutY="3.0" prefHeight="54.0" prefWidth="391.0" text="Martin Wikramasingha" textFill="#178994">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblUserName" layoutX="199.0" layoutY="4.0" prefHeight="54.0" prefWidth="454.0" text="Madol Duwa" textFill="MAGENTA">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblUserId" layoutX="11.0" layoutY="4.0" prefHeight="54.0" prefWidth="106.0" text="456708" textFill="#0022ff">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblContact" layoutX="1093.0" layoutY="4.0" prefHeight="54.0" prefWidth="206.0" text="Availabe">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblAdminId" alignment="CENTER" layoutX="1302.0" layoutY="6.0" prefHeight="54.0" prefWidth="246.0" text="Fiction" textFill="#278335">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <JFXButton layoutX="1548.0" layoutY="10.0" onAction="#btndelete" styleClass="hover-pane" text="">
+                    <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assests/icon/delete.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

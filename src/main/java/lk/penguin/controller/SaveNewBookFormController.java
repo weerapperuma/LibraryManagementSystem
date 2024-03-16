@@ -33,8 +33,9 @@ public class SaveNewBookFormController {
     private JFXButton fxbtnSave;
     public static int bookID=0;
     public static String bookTitle=null;
-    public static String genre=null;
+    public static String genre="Fantasy";
     public static String author=null;
+    public static String availablity = "available";
     BookManageService bookManageService= (BookManageService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceType.BOOKS);
 
     @FXML
@@ -49,17 +50,18 @@ public class SaveNewBookFormController {
 
         );
 
-        int save = bookManageService.save(booksDTO);
-        System.out.println("Save new book:"+save);
         if(bookID==0){
-            Navigation.switchPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface,"/view/bookManageForm.fxml");
+            bookManageService.save(booksDTO);
+            Navigation.switchPaging(WelcomeFormController.getWelcomeFormController().paneLoader, "/view/bookManageForm.fxml");
+            bookID=0;
             Navigation.closePopup();
         }
         else if (bookManageService.update(booksDTO)){
-            Navigation.switchPaging(UserDashBoard.getUserDashBoard().mainAdminPaneInterface,"/view/bookManageForm.fxml");
+            bookManageService.update(booksDTO);
+            Navigation.switchPaging(WelcomeFormController.getWelcomeFormController().paneLoader, "/view/bookManageForm.fxml");
+            bookID=0;
             Navigation.closePopup();
         }
-
     }
 
     @FXML
@@ -69,7 +71,7 @@ public class SaveNewBookFormController {
 
     public void initialize() {
         cmbBookStatus.setItems(FXCollections.observableArrayList("available", "unavailable"));
-        cmbBookStatus.setValue("availabile");
+        cmbBookStatus.setValue(availablity);
 
         cmbBookGenre.setItems((FXCollections.observableArrayList(
                 "Fiction", "Non-fiction", "Mystery", "Thriller", "Romance",

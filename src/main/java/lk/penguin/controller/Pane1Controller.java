@@ -92,10 +92,12 @@ public class Pane1Controller {
         addCartPane.setVisible(!addCartPane.isVisible());
     }
     @FXML
-    void btncompleteTransaction(ActionEvent event) {
+    void btncompleteTransaction(ActionEvent event) throws IOException {
         addedCartBookDtos=OrderAvailableBooksFormController.addedCartBookList;
         pane1Service.commitTransactions(transactionDto,addedCartBookDtos);
         addCartPane.setVisible(false);
+        addCartPane.getChildren().clear();
+        Navigation.switchPaging(pane1bottom2,"/view/transactionDetailTable.fxml");
     }
 
     UserDto userDto=null;
@@ -129,7 +131,7 @@ public class Pane1Controller {
     }
 
     @FXML
-    void btnSignInOnAction(ActionEvent event) {
+    void btnSignInOnAction(ActionEvent event) throws IOException {
         userDto=pane1Service.isExistsUser(txtSignUserName.getText(),txtSignUserPassword.getText());
 
         if(userDto!=null){
@@ -140,6 +142,7 @@ public class Pane1Controller {
             transactionFormLabelVisible(true);
             lblUsrIdShow.setText(txtSignUserName.getText());
             lblTimeTodayShow.setText(setTodayDate());
+            Navigation.switchPaging(pane1bottom2,"/view/transactionDetailTable.fxml");
         }
     }
 

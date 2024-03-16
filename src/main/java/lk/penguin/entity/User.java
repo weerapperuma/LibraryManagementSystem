@@ -1,5 +1,6 @@
 package lk.penguin.entity;
 
+import lk.penguin.dto.AdminDto;
 import lk.penguin.dto.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -46,11 +47,18 @@ public class User {
     private List<Transaction> transactions=new ArrayList<>();
 
     public User(int userId, String name, int userLoginId, String contact, String userEmail, String userPassword, Admin admin) {
-        
+        this.userId=userId;
+        this.userName=name;
+        this.userLoginId=userLoginId;
+        this.contact=contact;
+        this.userEmail=userEmail;
+        this.userPassword=userPassword;
+        this.admin=admin;
     }
 
 
     public UserDto toDto() {
+        AdminDto adminDto=admin.toEntity();
         return new UserDto(
                 userId,
                 userName,
@@ -58,7 +66,7 @@ public class User {
                 contact,
                 userEmail,
                 userPassword,
-                admin
+                adminDto
         );
     }
 }

@@ -73,29 +73,13 @@ public class BranchServiceImpl implements BranchService {
             session.close();
         }
     }
-    public BranchDto getBranchDetails(int id){
-        session=SessionFactoryConfig.getInstance().getSession();
-        try {
-            branchRepository.setSession(session);
-            Branch branch=branchRepository.ifExists(String.valueOf(id));
-            return branch.toDto();
-        }catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }finally {
-            session.close();
-        }
-    }
-
     @Override
-    public boolean deleteBranch(int id) {
-
-        BranchDto branchDetails = getBranchDetails(id);
+    public boolean deleteBranch(int branchId) {
         session=SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
             branchRepository.setSession(session);
-            branchRepository.delete(id);
+            branchRepository.delete(branchId);
             transaction.commit();
             return true;
         }catch (Exception e){

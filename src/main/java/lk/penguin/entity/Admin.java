@@ -1,5 +1,6 @@
 package lk.penguin.entity;
 
+import lk.penguin.dto.AdminDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -42,23 +43,24 @@ public class Admin {
     private List<Books>books=new ArrayList<>();
 
 
+    public Admin(int adminID, int adminLoginID, String adminName, String address, String email, String password) {
+        this.adminID=adminID;
+        this.adminLoginID=adminLoginID;
+        this.adminName=adminName;
+        this.address=address;
+        this.email=email;
+        this.password=password;
+    }
 
-
+    public AdminDto toEntity() {
+        return new AdminDto(
+                adminID,
+                adminLoginID,
+                adminName,
+                address,
+                email,
+                password
+        );
+    }
 }
 
-
-
-
-
-
-
-
-/*
-CREATE TABLE admin(
-        admin_id int primary key not null,
-        admin_name varchar(20),
-        address varchar(100),
-        email varchar(50),
-        password varchar(30));
-
-INSERT INTO admin VALUES (1,'sahan janapriya','galle','sahanjanapriya@galle.com','123w');*/

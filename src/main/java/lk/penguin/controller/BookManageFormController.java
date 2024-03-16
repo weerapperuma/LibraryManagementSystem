@@ -20,12 +20,14 @@ public class BookManageFormController {
     private VBox fxBookVbox;
     @FXML
     private Pane bookManagePane;
+    BookManageService bookManageService= (BookManageService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceType.BOOKS);
     @FXML
     void btnAddBookOnAction(ActionEvent event) throws IOException {
+        SaveNewBookFormController.bookID=0;
+        SaveNewBookFormController.bookTitle=null;
+        SaveNewBookFormController.author=null;
         Navigation.popupPaging(bookManagePane,"/view/saveNewBookForm.fxml");
     }
-
-    BookManageService bookManageService= (BookManageService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceType.BOOKS);
 
     public void initialize() throws IOException {
         ArrayList<BooksDto> booksDtos =bookManageService.getAllBooks();

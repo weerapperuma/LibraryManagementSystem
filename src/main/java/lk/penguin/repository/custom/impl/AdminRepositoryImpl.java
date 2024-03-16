@@ -1,5 +1,6 @@
 package lk.penguin.repository.custom.impl;
 
+import lk.penguin.dto.BranchDto;
 import lk.penguin.entity.Admin;
 import lk.penguin.repository.custom.AdminRepository;
 import lk.penguin.util.SessionFactoryConfig;
@@ -10,9 +11,6 @@ import java.util.ArrayList;
 public class AdminRepositoryImpl implements AdminRepository {
     private Session session;
 
-    public AdminRepositoryImpl(){
-        session= SessionFactoryConfig.getInstance().getSession();
-    }
     @Override
     public Admin ifExists(String userId) {
         try{
@@ -48,9 +46,7 @@ public class AdminRepositoryImpl implements AdminRepository {
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
-    }
+    public void delete(int id){}
 
     @Override
     public void update(Admin entity) {
@@ -58,6 +54,6 @@ public class AdminRepositoryImpl implements AdminRepository {
 
     @Override
     public void setSession(Session session) {
-
+        this.session=session;
     }
 }

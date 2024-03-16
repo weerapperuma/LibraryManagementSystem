@@ -1,5 +1,6 @@
 package lk.penguin.repository.custom.impl;
 
+import lk.penguin.dto.BranchDto;
 import lk.penguin.entity.Branch;
 import lk.penguin.repository.custom.BranchRepository;
 import org.hibernate.Session;
@@ -20,9 +21,11 @@ public class BranchRepositoryImpl implements BranchRepository {
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
+    public void delete(int id) {
+        Branch branch=session.get(Branch.class,id);
+        session.delete(branch);
     }
+
 
     @Override
     public void update(Branch entity) {

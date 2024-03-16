@@ -18,9 +18,19 @@ public class WelcomeServiceImpl implements WelcomeService {
     UserRepository userRepository= (UserRepository) RepositoryFactory.getRepositoryFactory().getRepository(RepositoryFactory.RepositoryType.USER);
     @Override
     public boolean chekAdmin(String userId, String password) {
-        Admin admin=adminRepository.ifExists(userId);
-        if(admin!=null){
-            return admin.getPassword().equals(password);
+
+        session=SessionFactoryConfig.getInstance().getSession();
+        try{
+            adminRepository.setSession(session);
+            Admin admin=adminRepository.ifExists(userId);
+            if(admin!=null){
+                return admin.getPassword().equals(password);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }finally {
+            session.close();
         }
         return false;
     }
@@ -41,8 +51,18 @@ public class WelcomeServiceImpl implements WelcomeService {
 
     @Override
     public Admin getAdmin(String userId) {
-        Admin admin=adminRepository.ifExists(userId);
-        return admin;
+        session=SessionFactoryConfig.getInstance().getSession();
+        try {
+            adminRepository.setSession(session);
+            Admin admin=adminRepository.ifExists(userId);
+            return admin;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }finally {
+            session.close();
+        }
+
     }
 
 

@@ -2,29 +2,27 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="661.0" prefWidth="1169.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.WelcomeFormController">
+<AnchorPane prefHeight="1067.0" prefWidth="1883.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.penguin.controller.WelcomeFormController">
    <children>
-      <ImageView fitHeight="654.0" fitWidth="1163.0" layoutX="3.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: 20;">
+      <ImageView fitHeight="1071.0" fitWidth="1873.0" layoutX="5.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: 20;">
          <image>
             <Image url="@../assests/img/bgBookWorm.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtPassportId" alignment="CENTER" layoutX="455.0" layoutY="555.0" prefHeight="35.0" prefWidth="271.0" promptText="Input your Loggin ID" style="-fx-background-radius: 20;" styleClass="text-field" stylesheets="@../style/iconButton.css">
+      <TextField fx:id="txtPassportId" alignment="CENTER" layoutX="612.0" layoutY="996.0" prefHeight="35.0" prefWidth="271.0" promptText="Input your Loggin ID" style="-fx-background-radius: 20;" styleClass="text-field" stylesheets="@../style/iconButton.css">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </TextField>
-      <JFXButton buttonType="RAISED" layoutX="1101.0" layoutY="6.0" onAction="#btnCloseOnAction" prefHeight="35.0" prefWidth="42.0" styleClass="btndelete" stylesheets="@../style/iconButton.css" text="">
+      <JFXButton buttonType="RAISED" layoutX="1831.0" layoutY="9.0" onAction="#btnCloseOnAction" prefHeight="39.0" prefWidth="43.0" styleClass="btnClose" stylesheets="@../style/iconButton.css" text="">
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -33,12 +31,12 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <PasswordField fx:id="pwPasswordField" alignment="CENTER" layoutX="457.0" layoutY="605.0" prefHeight="0.0" prefWidth="271.0" promptText="Input User Password" style="-fx-background-radius: 30;" stylesheets="@../style/iconButton.css">
+      <PasswordField fx:id="pwPasswordField" alignment="CENTER" layoutX="943.0" layoutY="995.0" prefHeight="0.0" prefWidth="271.0" promptText="Input User Password" style="-fx-background-radius: 30;" stylesheets="@../style/iconButton.css">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </PasswordField>
-      <JFXButton fx:id="btntxtRent" layoutX="750.0" layoutY="608.0" onAction="#btnRentOnAction" prefHeight="35.0" prefWidth="33.0" styleClass="btn" stylesheets="@../style/iconButton.css" text="">
+      <JFXButton fx:id="btntxtRent" layoutX="1289.0" layoutY="993.0" onAction="#btnRentOnAction" prefHeight="35.0" prefWidth="33.0" styleClass="btn" stylesheets="@../style/iconButton.css" text="">
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -47,66 +45,36 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Hyperlink fx:id="hyperLinkForget" layoutX="11.0" layoutY="634.0" onAction="#forgetPasswordOnAction" prefHeight="24.0" prefWidth="236.0" text="Forget Password ? " textFill="#0004ff">
+      <Hyperlink fx:id="hyperLinkForget" layoutX="1409.0" layoutY="1000.0" onAction="#forgetPasswordOnAction" prefHeight="24.0" prefWidth="236.0" text="Forget Password ? " textFill="#0004ff">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Hyperlink>
-      <Label layoutX="832.0" layoutY="614.0" text="OR" textFill="#ff065d">
+      <JFXButton fx:id="fxBooksBtn" layoutX="866.0" layoutY="23.0" onAction="#tnBooksOnAction" prefHeight="46.0" prefWidth="136.0" styleClass="btnManageAdmin" stylesheets="@../style/iconButton.css" text="Books">
          <font>
-            <Font name="System Bold Italic" size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
-      </Label>
-      <JFXButton fx:id="fxBtnCreateAcc" layoutX="886.0" layoutY="604.0" onAction="#btnCreateAccOnAction" styleClass="btnCreateAccount" stylesheets="@../style/iconButton.css" text="CREATE ACCOUNT" />
-      <Pane layoutX="887.0" layoutY="226.0" prefHeight="365.0" prefWidth="250.0">
-         <children>
-            <TextField fx:id="fxNameNewUsr" layoutX="4.0" layoutY="43.0" prefHeight="32.0" prefWidth="242.0" style="-fx-background-radius: 5;" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
-            <TextField fx:id="fxEmailNewUsr" layoutX="5.0" layoutY="212.0" prefHeight="32.0" prefWidth="242.0" style="-fx-background-radius: 5;" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
-            <PasswordField fx:id="fxpasswordNewUsr" layoutX="4.0" layoutY="268.0" prefHeight="32.0" prefWidth="242.0" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
-            <PasswordField fx:id="fxRePasswordNewUsr" layoutX="4.0" layoutY="324.0" prefHeight="32.0" prefWidth="242.0" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
-            <Label layoutX="112.0" layoutY="306.0" text="Re-Type Password">
-               <font>
-                  <Font name="Cambria Math" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="134.0" layoutY="251.0" text="Give Password">
-               <font>
-                  <Font name="Cambria Math" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="138.0" layoutY="195.0" text="Email Address">
-               <font>
-                  <Font name="Cambria Math" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="195.0" layoutY="25.0" text="Name">
-               <font>
-                  <Font name="Cambria Math" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="36.0" layoutY="7.0" prefHeight="16.0" prefWidth="111.0" text="NEW USER:">
-               <font>
-                  <Font size="12.0" />
-               </font>
-            </Label>
-            <Line endX="221.0" layoutX="29.0" layoutY="15.0" startX="117.0" />
-            <Line endX="149.3333740234375" layoutX="-120.0" layoutY="16.0" startX="117.0" />
-            <TextField fx:id="fxNameNewUsrId" layoutX="5.0" layoutY="100.0" prefHeight="32.0" prefWidth="242.0" style="-fx-background-radius: 5;" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
-            <TextField fx:id="fxNewUsrContact" layoutX="4.0" layoutY="155.0" prefHeight="32.0" prefWidth="242.0" style="-fx-background-radius: 5;" styleClass="text-field2" stylesheets="@../style/iconButton.css" />
-            <Label layoutX="192.0" layoutY="83.0" text="userId">
-               <font>
-                  <Font name="Cambria Math" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="180.0" layoutY="138.0" text="Contact">
-               <font>
-                  <Font name="Cambria Math" size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Line endX="139.0" layoutX="1007.0" layoutY="593.0" startX="-130.33331298828125" />
-      <Line endX="139.0" endY="-638.0" layoutX="1000.0" layoutY="871.0" startX="139.0" startY="-270.0" />
-      <Line endX="139.0" endY="-640.0" layoutX="745.0" layoutY="873.0" startX="139.0" startY="-270.0" />
+      </JFXButton>
+      <JFXButton fx:id="fxReadersOnAction" layoutX="530.0" layoutY="24.0" onAction="#btnReadersOnAction" prefHeight="46.0" prefWidth="124.0" styleClass="btnManageAdmin" stylesheets="@../style/iconButton.css" text="Readers">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="fxbranchesBtn" layoutX="1234.0" layoutY="22.0" onAction="#btnBranchesOnAction" prefHeight="46.0" prefWidth="136.0" styleClass="btnManageAdmin" stylesheets="@../style/iconButton.css" text="Branches">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtsearchBar" layoutX="345.0" layoutY="90.0" prefHeight="56.0" prefWidth="1234.0" promptText="search" style="-fx-background-radius: 30;" text="Search .......">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <JFXButton fx:id="fxSearchBtn" layoutX="1440.0" layoutY="91.0" onAction="#searchbtnOnAction" prefHeight="54.0" prefWidth="138.0" style="-fx-background-radius: 30; -fx-background-color: orange;" text="Search">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <Pane fx:id="paneLoader" layoutX="118.0" layoutY="193.0" prefHeight="753.0" prefWidth="1630.0" style="-fx-background-color: transparent;" />
    </children>
 </AnchorPane>
