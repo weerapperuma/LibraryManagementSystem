@@ -36,17 +36,9 @@ public class Transaction {
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL,
-    fetch = FetchType.LAZY,
-    mappedBy = "transaction")
+    fetch = FetchType.LAZY,mappedBy = "transaction")
     private List<TransactionDetail>transactionDetails=new ArrayList<>();
 
-    public Transaction(int transactionId, LocalDateTime orderTime, LocalDateTime dueDate, String completenceStatus, User user) {
-        this.transactionId=transactionId;
-        this.orderTime=orderTime;
-        this.dueDate=dueDate;
-        this.completenceStatus=completenceStatus;
-        this.user=user;
-    }
 
     public TransactionDto toDto() {
         UserDto userDto=user.toDto();

@@ -18,7 +18,7 @@ import java.util.List;
 public class Books {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "book_Id",columnDefinition = "int")
+    @Column(name = "book_Id")
     private int bookId;
 
     @Column(name = "book_title")
@@ -42,15 +42,6 @@ public class Books {
             fetch = FetchType.LAZY,
             mappedBy = "books")
     private List<TransactionDetail> transactionDetails=new ArrayList<>();
-
-    public Books(int bookId, String bookTitle, String genre, String author, String availability, Admin admin) {
-        this.bookId = bookId;
-        this.bookTitle = bookTitle;
-        this.genre = genre;
-        this.author = author;
-        this.availability = availability;
-        this.admin = admin;
-    }
 
     public BooksDto toDto() {
         return new BooksDto(

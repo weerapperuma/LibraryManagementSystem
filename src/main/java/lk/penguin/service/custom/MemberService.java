@@ -1,12 +1,12 @@
 package lk.penguin.service.custom;
 
-import lk.penguin.dto.UserDto;
+import lk.penguin.projection.UserProjection;
 import lk.penguin.service.SuperService;
 
 import java.util.List;
 
 public interface MemberService extends SuperService {
-    List<UserDto> getAllMembers();
+    List<UserProjection> getAllMembers();
 
     boolean delete(int id);
 }

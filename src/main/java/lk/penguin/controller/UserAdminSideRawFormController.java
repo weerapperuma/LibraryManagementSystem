@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import lk.penguin.dto.UserDto;
+import lk.penguin.projection.UserProjection;
 import lk.penguin.service.ServiceFactory;
 import lk.penguin.service.custom.MemberService;
 import lk.penguin.service.custom.impl.MemberServiceImpl;
@@ -33,7 +34,7 @@ public class UserAdminSideRawFormController {
     private Label lblUserName;
     MemberService memberService= (MemberServiceImpl) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceType.MEMBER);
 
-    public static UserDto userDto2=null;
+    public static UserProjection userDto2=null;
 
     @FXML
     void btndelete(ActionEvent event) {
@@ -49,12 +50,12 @@ public class UserAdminSideRawFormController {
         }
     }
 
-    public void setDTO(UserDto userDto) {
+    public void setDTO(UserProjection userDto) {
         userDto2=userDto;
         lblUserId.setText(String.valueOf(userDto.getUserId()));
-        lblUserName.setText(userDto.getName());
+        lblUserName.setText(userDto.getUserName());
         lblContact.setText(userDto.getContact());
         lblUserEmail.setText(userDto.getUserEmail());
-        lblAdminId.setText("1");
+        lblAdminId.setText(String.valueOf(userDto.getAdmin()));
     }
 }

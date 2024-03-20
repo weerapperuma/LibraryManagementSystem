@@ -19,15 +19,15 @@ public class TransactionDto {
     private UserDto userDto;
 
     public Transaction toEntity() {
-        User user=userDto.toEntity();
 
-        return new Transaction(
-                transactionId,
-                orderTime,
-                dueDate,
-                completenceStatus,
-                user
-        );
+        Transaction transaction = new Transaction();
+        transaction.setTransactionId(transactionId);
+        transaction.setOrderTime(orderTime);
+        transaction.setDueDate(dueDate);
+        transaction.setCompletenceStatus(completenceStatus);
+        transaction.setUser(userDto.toEntity());
+
+        return transaction;
     }
 
 }

@@ -65,16 +65,16 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="txtsearchBar" layoutX="345.0" layoutY="90.0" prefHeight="56.0" prefWidth="1234.0" promptText="search" style="-fx-background-radius: 30;" text="Search .......">
+      <TextField fx:id="txtsearchBar" layoutX="345.0" layoutY="90.0" prefHeight="56.0" prefWidth="1234.0" promptText="Search......" style="-fx-background-radius: 30;">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <JFXButton fx:id="fxSearchBtn" layoutX="1440.0" layoutY="91.0" onAction="#searchbtnOnAction" prefHeight="54.0" prefWidth="138.0" style="-fx-background-radius: 30; -fx-background-color: orange;" text="Search">
+      <JFXButton fx:id="fxSearchBtn" layoutX="1440.0" layoutY="91.0" onAction="#searchbtnOnAction" prefHeight="55.0" prefWidth="138.0" style="-fx-background-radius: 30; -fx-background-color: orange;" text="Search">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <Pane fx:id="paneLoader" layoutX="118.0" layoutY="193.0" prefHeight="753.0" prefWidth="1630.0" style="-fx-background-color: transparent;" />
+      <Pane fx:id="paneLoader" layoutX="118.0" layoutY="229.0" prefHeight="753.0" prefWidth="1630.0" style="-fx-background-color: transparent;" />
    </children>
 </AnchorPane>

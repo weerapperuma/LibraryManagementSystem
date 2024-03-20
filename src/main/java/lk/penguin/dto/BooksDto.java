@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.awt.print.Book;
+import java.util.ArrayList;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,13 +21,14 @@ public class BooksDto {
     private Admin admin;
 
     public Books toEntity(){
-        return new Books(
-            this.bookId,
-                this.bookTitle,
-                this.genre,
-                this.author,
-                this.availability,
-                this.admin
-        );
+        Books books = new Books();
+        books.setBookId(bookId);
+        books.setBookTitle(bookTitle);
+        books.setGenre(genre);
+        books.setAuthor(author);
+        books.setAvailability(availability);
+        books.setAdmin(admin);
+
+        return books;
     }
 }

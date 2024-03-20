@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -14,10 +15,17 @@
     <children>
         <Pane layoutX="2.0" layoutY="53.0" prefHeight="696.0" prefWidth="1624.0">
             <children>
-                <ScrollPane layoutX="1.0" prefHeight="696.0" prefWidth="1624.0">
+                <ScrollPane layoutX="1.0" prefHeight="696.0" prefWidth="1624.0" stylesheets="@../style/scrollPane.css">
                     <content>
                         <VBox fx:id="fxBranchVbox" prefHeight="693.0" prefWidth="1617.0" />
                     </content>
+               <styleClass>
+                  <String fx:value="decrement-button" />
+                  <String fx:value="scroll-bar" />
+                  <String fx:value="transparent-background" />
+                  <String fx:value="transparent-scroll-pane" />
+                  <String fx:value="viewport" />
+               </styleClass>
                 </ScrollPane>
             </children>
         </Pane>

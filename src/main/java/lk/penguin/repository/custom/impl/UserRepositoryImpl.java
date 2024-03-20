@@ -1,7 +1,7 @@
 package lk.penguin.repository.custom.impl;
 
-import lk.penguin.dto.BranchDto;
 import lk.penguin.entity.User;
+import lk.penguin.projection.UserProjection;
 import lk.penguin.repository.custom.UserRepository;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -48,5 +48,16 @@ public class UserRepositoryImpl implements UserRepository {
         Query<User> fromUser = session.createQuery("from User ", User.class);
         List<User> list = fromUser.list();
         return (ArrayList<User>) list;
+    }
+
+    @Override
+    public ArrayList<UserProjection> getAllUserProjection(){
+        String hql = "SELECT " +
+                "new lk.penguin.projection.UserProjection(u.userId,u.userName,u.userEmail,u.contact,u.admin.adminID)" +
+                "FROM User AS u";
+
+        Query query = session.createQuery(hql);
+        List list = query.list();
+        return (ArrayList<UserProjection>) list;
     }
 }

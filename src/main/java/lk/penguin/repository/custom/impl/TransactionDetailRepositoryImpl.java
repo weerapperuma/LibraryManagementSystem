@@ -5,6 +5,7 @@ import lk.penguin.entity.TransactionDetail;
 import lk.penguin.repository.custom.TransactionDetailRepository;
 import org.hibernate.Session;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class TransactionDetailRepositoryImpl implements TransactionDetailRepository {
@@ -27,8 +28,8 @@ public class TransactionDetailRepositoryImpl implements TransactionDetailReposit
 
     @Override
     public int save(TransactionDetail entity) {
-        int save = (int) session.save(entity);
-        return save;
+        session.save(entity);
+        return 0;
     }
     @Override
     public void delete(int id){}

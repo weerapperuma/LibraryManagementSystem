@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import lk.penguin.dto.BooksDto;
@@ -94,7 +95,9 @@ public class Pane1Controller {
     @FXML
     void btncompleteTransaction(ActionEvent event) throws IOException {
         addedCartBookDtos=OrderAvailableBooksFormController.addedCartBookList;
+
         pane1Service.commitTransactions(transactionDto,addedCartBookDtos);
+
         addCartPane.setVisible(false);
         addCartPane.getChildren().clear();
         Navigation.switchPaging(pane1bottom2,"/view/transactionDetailTable.fxml");
@@ -118,6 +121,7 @@ public class Pane1Controller {
             fxsearchBooksbtn.setDisable(true);
         }
     }
+
 
     @FXML
     void btnExitOnAction(ActionEvent event) {

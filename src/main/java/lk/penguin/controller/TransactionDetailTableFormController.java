@@ -25,7 +25,7 @@ public class TransactionDetailTableFormController {
 
     public void initialize() throws IOException {
         ArrayList<TransactionDto> transactionDtos = transactionTableService.getAllTransactions();
-        System.out.println("huuuuu"+transactionDtos);
+
         if(transactionDtos !=null){
             for(TransactionDto transactionDto:transactionDtos){
                 createBookPane(transactionDto);

@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import lk.penguin.dto.BooksDto;
 import lk.penguin.dto.UserDto;
+import lk.penguin.projection.UserProjection;
 import lk.penguin.service.ServiceFactory;
 import lk.penguin.service.custom.MemberService;
 import lk.penguin.service.custom.impl.MemberServiceImpl;
@@ -31,16 +32,16 @@ public class UserManageAdminSideFormContrller {
     MemberService memberService= (MemberServiceImpl) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceType.MEMBER);
 
     public void initialize() throws IOException {
-        List<UserDto> userDtos =memberService.getAllMembers();
+        List<UserProjection> userDtos =memberService.getAllMembers();
         if(userDtos !=null){
-            for(UserDto userDto:userDtos){
+            for(UserProjection userDto:userDtos){
                 createBookPane(userDto);
             }
         }
 
     }
 
-    private void createBookPane(UserDto userDto) throws IOException {
+    private void createBookPane(UserProjection userDto) throws IOException {
         FXMLLoader loader=new FXMLLoader(BookManageFormController.class.getResource("/view/userAdminSideTableRawForm.fxml"));
         Parent root=loader.load();
         UserAdminSideRawFormController userAdminSideRawFormController=loader.getController();

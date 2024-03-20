@@ -4,7 +4,9 @@ import lk.penguin.dto.BooksDto;
 import lk.penguin.dto.TransactionDetailDto;
 import lk.penguin.dto.TransactionDto;
 import lk.penguin.dto.UserDto;
+import lk.penguin.embeddable.TransactionDetailPk;
 import lk.penguin.entity.Books;
+import lk.penguin.entity.TransactionDetail;
 import lk.penguin.entity.User;
 import lk.penguin.repository.RepositoryFactory;
 import lk.penguin.repository.custom.BooksRepository;
@@ -57,46 +59,42 @@ public class Pane1ServiceImpl implements Pane1Service {
         org.hibernate.Transaction transaction = session.beginTransaction();
 
 
+        lk.penguin.entity.Transaction entity = transactionDto.toEntity();
+
         try {
             //save transaction
             transactionRepository.setSession(session);
-            int savedTransaction=transactionRepository.save(transactionDto.toEntity());
+            int save = transactionRepository.save(entity);
+            //session.flush();
 
-            TransactionDto transactionDto1=new TransactionDto(
-                    savedTransaction,
-                    transactionDto.getOrderTime(),
-                    transactionDto.getDueDate(),
-                    transactionDto.getCompletenceStatus(),
-                    transactionDto.getUserDto()
 
-            );
-
-            //updateBooks
-            booksRepository.setSession(session);
+            System.out.println("transaction saved id : "+save);
             for(BooksDto booksDto:addedCartBookDtos){
-                BooksDto booksDto1=new BooksDto(
-                        booksDto.getBookId(),
-                        booksDto.getBookTitle(),
-                        booksDto.getGenre(),
-                        booksDto.getAuthor(),
-                        "unavailable",
-                        booksDto.getAdmin()
-                );
-                booksRepository.update(booksDto1.toEntity());
-                session.flush();
-            }
 
+                //update books
+                booksRepository.setSession(session);
+                booksDto.setAvailability("unavailable");
+                booksRepository.update(booksDto.toEntity());
+                //session.flush();
 
-            //save trasaction details
-            transactionDetailRepository.setSession(session);
-            for(BooksDto booksDto:addedCartBookDtos){
-                TransactionDetailDto transactionDetailDto=new TransactionDetailDto(
-                        0,
-                        LocalDateTime.now(),
-                        booksDto,
-                        transactionDto1
+                //transaction-detail save
+                transactionDetailRepository.setSession(session);
+                TransactionDetail transactionDetail = new TransactionDetail();
+
+                System.out.println("pane 1 service "+transactionDto.toEntity().getTransactionId());
+                System.out.println("pane 1 service 2 "+booksDto.toEntity().getBookId());
+
+                transactionDetail.setTransaction(entity);
+                transactionDetail.setBooks(booksDto.toEntity());
+                transactionDetail.setTransactionDetailId(
+                        new TransactionDetailPk(
+                                entity.getTransactionId(),
+                                booksDto.toEntity().getBookId()
+                        )
+
                 );
-                transactionDetailRepository.save(transactionDetailDto.toEntity());
+                transactionDetailRepository.save(transactionDetail);
+                //session.flush();
             }
 
             transaction.commit();
