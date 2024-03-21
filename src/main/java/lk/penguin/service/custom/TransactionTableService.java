@@ -7,4 +7,6 @@ import java.util.ArrayList;
 
 public interface TransactionTableService extends SuperService {
     ArrayList<TransactionDto> getAllTransactions();
+
+    void makeReturn(TransactionDto transactionDto);
 }

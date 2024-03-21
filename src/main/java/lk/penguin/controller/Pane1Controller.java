@@ -124,6 +124,10 @@ public class Pane1Controller {
 
 
     @FXML
+    void ontyped(KeyEvent event) {
+        //System.out.println(txtsearchBar.getText());
+    }
+    @FXML
     void btnExitOnAction(ActionEvent event) {
         Platform.exit();
         System.exit(0);

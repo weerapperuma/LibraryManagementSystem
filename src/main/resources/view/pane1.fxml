@@ -44,7 +44,7 @@
       </Pane>
       <Pane layoutY="99.0" prefHeight="917.0" prefWidth="1900.0" style="-fx-border-color: black;">
          <children>
-            <ImageView fitHeight="928.0" fitWidth="1900.0" onKeyTyped="#ontyped" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="928.0" fitWidth="1900.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assests/img/crooped2.jpg" />
                </image>
@@ -59,11 +59,11 @@
                   <Font name="System Bold Italic" size="36.0" />
                </font>
             </Label>
-            <TextField fx:id="txtsearchBar" layoutX="389.0" layoutY="299.0" prefHeight="46.0" prefWidth="995.0" promptText="      search the collection" style="-fx-background-radius: 20;">
+            <TextField fx:id="txtsearchBar" layoutX="389.0" layoutY="299.0" onKeyPressed="#ontyped" prefHeight="46.0" prefWidth="1057.0" promptText="      search the collection" style="-fx-background-radius: 20;">
                <font>
                   <Font size="24.0" />
                </font></TextField>
-            <JFXButton layoutX="1262.0" layoutY="299.0" onAction="#btnSearchBarOnAction" prefHeight="46.0" prefWidth="122.0" style="-fx-background-color: #1f29e8; -fx-background-radius: 20;" text="Search">
+            <JFXButton layoutX="1265.0" layoutY="299.0" onAction="#btnSearchBarOnAction" prefHeight="46.0" prefWidth="180.0" style="-fx-background-color: #1f29e8; -fx-background-radius: 20;" text="Search">
                <font>
                   <Font size="24.0" />
                </font>

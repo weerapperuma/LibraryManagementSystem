@@ -39,5 +39,6 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 
     @Override
     public void update(Transaction entity) {
+        session.update(entity);
     }
 }

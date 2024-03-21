@@ -35,4 +35,24 @@ public class TransactionTableServiceImpl implements TransactionTableService {
             session.close();
         }
     }
+
+    @Override
+    public void makeReturn(TransactionDto transactionDto) {
+        session=SessionFactoryConfig.getInstance().getSession();
+        org.hibernate.Transaction transaction1 = session.beginTransaction();
+        try{
+            transactionRepository.setSession(session);
+            Transaction transaction=transactionDto.toEntity();
+            transaction.setCompletenceStatus("complete");
+            transactionRepository.update(transaction);
+
+            transaction1.commit();
+        }catch (Exception e){
+            e.printStackTrace();
+            transaction1.rollback();
+        }finally {
+            session.close();
+        }
+
+    }
 }
